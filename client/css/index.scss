@@ -1,0 +1,234 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+html,body{
+  background: #f0f0f0;
+  font-size: .24rem;
+  color: #333;
+}
+a{
+  text-decoration: none;
+  color: #333;
+}
+img{
+  width: 100%;
+}
+.swiper-wrapper{
+  img{
+    display: block;
+  }
+}
+.swiper-pagination-bullet-active{
+  background: #fff!important;
+}
+.header-fiexd{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: .95rem;
+  background: #000;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 999;
+  padding: 0 .2rem;
+  box-sizing: border-box;
+  .left{
+    i{
+      display: block;
+      width: .5rem;
+      height: .5rem;
+      background-image: url('../images/return-page.png');
+      background-size: 100%;
+    }
+  }
+  .left,.right{
+    flex: .5;
+  }
+  .center{
+    flex:1;
+    color: #fff;
+    font-size: .32rem;
+  }
+}
+.main{
+  &:before{
+    content: '';
+    display: block;
+    height: .95rem;
+  }
+  padding: .2rem;
+  .title{
+    font-size: .3rem;
+    text-align: center;
+    font-weight: normal;
+    padding: .2rem;
+  }
+}
+.input-base{
+  width: 100%;
+  border: none;
+  line-height: .2rem;
+  padding: .2rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  display: block;
+  margin-top: .2rem;
+}
+input {
+  -webkit-appearance: none;
+  outline: none;
+}
+.add-btn {
+  width: 4rem;
+  text-align: center;
+  line-height: 1rem;
+  color: #fff;
+  background: #000;
+  margin: .5rem auto 0;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  text-align: center;
+  background: #fff;
+  th,td{
+    border: 1px solid #eee;
+    height: .5rem;
+  }
+  th{
+    font-size: .26rem;
+  }
+  td{
+    color: #676767;
+    word-wrap:break-word;
+    padding: .1rem;
+  }
+  .delete{
+    background: #ff504d;
+    display: inline-block;
+    color: #fff;
+    padding: .1rem;
+  }
+}
+.search-box{
+  height: .95rem;
+  background: #fe5c36;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:0 .2rem;
+  transition: all .3s;
+  input[name="search"]{
+    height: .6rem;
+    border: none;
+    border-radius: .5rem;
+    flex: 1;
+    padding-left: .2rem;
+  }
+}
+.logo{
+  margin-right: .2rem;
+  h1{
+    a{
+      background-image: url('../images/logo.png');
+      background-repeat: no-repeat;
+      width: 1.6rem;
+      height: .7rem;
+      display: block;
+      background-size: 100%;
+    }
+  }
+}
+.navigation{
+  background: #fff;
+  .navigation-swiper{
+    height: .9rem;
+    padding: 0 .2rem;
+    .nav-slide{
+      text-align: center;
+      display: inline-block;
+      width: auto;
+      font-size: .28rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .nav-title{
+        padding: 0 .2rem;
+      }
+      &.active{
+        color: #f53f65;
+        border-bottom: 2px solid #f53f65;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+.recommend-list{
+  background: #fff;
+  li{
+    min-height: 1.6rem;
+    padding: .2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    a{
+      display: flex;
+    }
+    .img-url{
+      width: 2rem;
+      height: 2rem;
+    }
+    .commodity{
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      padding: .1rem .2rem 0;
+      position: relative;
+    }
+    .commodity-title{
+      font-size: .28rem;
+      font-weight: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      /*! autoprefixer: off */
+      -webkit-box-orient: vertical;
+      /* autoprefixer: on */
+    }
+    .used-coupon{
+      background: #f95e5b;
+      display: inline-block;
+      border-radius: .2rem;
+      color: #fff;
+      font-size: .24rem;
+      padding-left: .2rem;
+      line-height: .3rem;
+      padding-right: .2rem;
+      margin-top: .15rem;
+    }
+    .price{
+      font-size: .22rem;
+      margin-top: .2rem;
+    }
+    .sale-price{
+      color: #f95e5b;
+      b{
+        font-size: .3rem;
+        font-weight: normal;
+      }
+    }
+    .market-price{
+      color: #b0b0b0;
+      text-decoration: line-through;
+      margin-left: .1rem;
+    }
+  }
+}
