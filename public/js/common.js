@@ -6,7 +6,19 @@ var MyMethods = {
     var index = v.indexOf('减');
     var result = parseInt(v.substr(index + 1,v.length));
     return result;
-  }
+  },
+  Infinite: function(cb){
+    var laoding = true;
+    window.addEventListener('scroll',function(){
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if($(document).scrollTop() + 50 >=$(document).height()-$(window).height() && laoding){
+        laoding = false;
+        if(cb){
+          cb(laoding);
+        }
+      }
+    });
+  },
 }
 
 $.myGetJSON = function(options) {

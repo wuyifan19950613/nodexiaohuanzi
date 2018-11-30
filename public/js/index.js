@@ -6,6 +6,7 @@ var navbackColor = [
   '#f53f65',
   '#a331df',
 ];
+var ShopPageNum = 1;
 
 var mySwiper = new Swiper ('.index-banner', {
   autoplay: {
@@ -23,12 +24,13 @@ var mySwiper = new Swiper ('.index-banner', {
   },
 });
 $('.nav-slide').eq(0).addClass('active');
-shopList(0);
+shopList(0,1);
 // 导航
 var navigation = new Swiper ('.navigation-swiper', {
     slidesPerView : 'auto',
     on:{
        tap:() => {
+         ShopPageNum = 1;
         let nowTlanslate;
         const swiper = navigation;
         const swiperWidth = swiper.$el[0].clientWidth;
@@ -52,16 +54,16 @@ var navigation = new Swiper ('.navigation-swiper', {
          swiper.setTranslate(-nowTlanslate);
         }
         $('.nav-slide').eq(clickIndex).addClass('active').siblings().removeClass('active');
-        shopList(clickIndex);
+        shopList(clickIndex,1);
        },
      },
-   });
+});
 
 
-function shopList(i){
+function shopList(i,pageNum,laoding){
   var commlist = new Array();
   $.myGetJSON({
-    url:'/api/taobao/optimusMaterial?pageNum=1&pageSize=20&material_id='+$('.nav-slide').eq(i).attr('data-material_id'),
+    url:'/api/taobao/optimusMaterial?pageNum='+pageNum+'&pageSize=30&material_id='+$('.nav-slide').eq(i).attr('data-material_id'),
     success: function(res){
       commlist = res.msg.result_list.map_data;
       var html = '';
@@ -81,6 +83,7 @@ function shopList(i){
         html+='</div>';
         html+='</a></li>';
       }
+      laoding = true;
       $('.recommend-list').html(html);
     }
   })
@@ -96,5 +99,41 @@ $('#keyword').on('keypress', function(e){
       }
     })
   }
+});
 
-})
+
+var laoding = true;
+window.addEventListener('scroll',function(){
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  if($(document).scrollTop() + 50 >=$(document).height()-$(window).height() && laoding){
+    laoding = false;
+    var index = $('.navigation-swiper .swiper-slide.active').index();
+    ShopPageNum ++;
+    var commlist = new Array();
+    $.myGetJSON({
+      url:'/api/taobao/optimusMaterial?pageNum='+ShopPageNum+'&pageSize=30&material_id='+$('.nav-slide').eq(index).attr('data-material_id'),
+      success: function(res){
+        commlist = res.msg.result_list.map_data;
+        var html = '';
+        for(var i= 0; i<commlist.length;i++){
+          html+='<li class="">';
+          html+='<a href="'+commlist[i].coupon_click_url+'">';
+          html+='<div class="img-url">';
+          html+='<img src="'+commlist[i].pict_url+'" alt="">';
+          html+='</div>';
+          html+='<div class="commodity">';
+          html+='<h1 class="commodity-title">'+commlist[i].title+'</h1>';
+          html+='<div class="price">';
+          html+='<span class="sale-price">￥<b>'+(commlist[i].zk_final_price - commlist[i].coupon_amount).toFixed(2)+'</b></span>';
+          html+='<span class="market-price">¥'+commlist[i].zk_final_price+'</span>';
+          html+='</div>';
+          html+='<div class="used-coupon">  劵 '+commlist[i].coupon_amount+'元</div>';
+          html+='</div>';
+          html+='</a></li>';
+        }
+        laoding = true;
+        $('.recommend-list').append(html);
+      }
+    })
+  }
+});
