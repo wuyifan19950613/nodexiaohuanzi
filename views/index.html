@@ -11,7 +11,21 @@
     <input id="keyword" type="text" name="search" placeholder="请输入关键词">
   </div>
 
-
+  <!--  banner start-->
+  <div class="swiper-container index-banner">
+    <div class="swiper-wrapper">
+    <%for(var i=0;i<banner.data.length;i++){%>
+      <div class="swiper-slide">
+        <a href="<%= banner.data[i].imgHref%>">
+          <img src="<%= banner.data[i].imgUrl%>" alt="<%= banner.data[i].imgMark%>">
+        </a>
+      </div>
+    <% } %>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+  </div>
+  <!--  banner end-->
 
   <!--  导航 start-->
   <div class="navigation">
