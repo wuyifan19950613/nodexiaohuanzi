@@ -5,8 +5,8 @@ var request = require('./request');
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   // var banner = (await request.get('/api/getIndexBanner')).body;
-  // var navigation = (await request.get('/api/getNavigation')).body;
-  // res.render('index', { title: '精选淘宝天猫优惠卷-小欢有劵', banner: banner, navigation: navigation});
+  var navigation = (await request.get('/api/getNavigation')).body;
+  res.render('index', { title: '精选淘宝天猫优惠卷-小欢有劵', navigation: navigation});
   res.render('index', { title: '精选淘宝天猫优惠卷-小欢有劵'});
 });
 

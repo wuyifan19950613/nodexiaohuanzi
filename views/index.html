@@ -12,6 +12,21 @@
   </div>
 
 
+
+  <!--  导航 start-->
+  <div class="navigation">
+    <div class="swiper-container navigation-swiper">
+      <div class="swiper-wrapper">
+        <% for(var i = 0; i< navigation.data.length; i++){%>
+        <div class="swiper-slide nav-slide" data-material_id="<%= navigation.data[i].navId%>">
+          <div class="nav-title"><%= navigation.data[i].title%></div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <!--  导航 end-->
+
   <!--  商品列表 start-->
   <ul class="recommend-list">
 
