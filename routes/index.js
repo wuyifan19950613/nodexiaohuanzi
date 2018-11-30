@@ -4,11 +4,10 @@ var request = require('./request');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  var banner = (await request.get('/api/getIndexBanner')).body;
-  var navigation = (await request.get('/api/getNavigation')).body;
-  console.log(banner)
-  res.render('index', { title: '精选淘宝天猫优惠卷-小欢有劵', banner: banner, navigation: navigation});
-  // res.render('index', { title: '精选淘宝天猫优惠卷-小欢有劵'});
+  // var banner = (await request.get('/api/getIndexBanner')).body;
+  // var navigation = (await request.get('/api/getNavigation')).body;
+  // res.render('index', { title: '精选淘宝天猫优惠卷-小欢有劵', banner: banner, navigation: navigation});
+  res.render('index', { title: '精选淘宝天猫优惠卷-小欢有劵'});
 });
 
 router.get('/search', async function(req, res, next) {
