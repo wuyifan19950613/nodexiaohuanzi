@@ -1,10 +1,12 @@
 var navbackColor = [
-  '#fe5c36',
-  '#ff6609',
   '#a4d6d3',
   '#f64450',
   '#f53f65',
   '#a331df',
+  '#cb7dff',
+  '#ff656b',
+  '#ffd10a',
+  '#e6569e',
 ];
 var ShopPageNum = 1;
 
