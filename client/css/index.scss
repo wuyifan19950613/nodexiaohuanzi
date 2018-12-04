@@ -6,6 +6,11 @@ html,body{
   background: #f0f0f0;
   font-size: .24rem;
   color: #333;
+  max-width: 750px;
+  margin: auto;
+}
+ul,li,ol{
+  list-style: none;
 }
 a{
   text-decoration: none;
@@ -230,6 +235,23 @@ table{
       color: #b0b0b0;
       text-decoration: line-through;
       margin-left: .1rem;
+    }
+  }
+}
+.category{
+  display: flex;
+  background: #fff;
+  padding: .1rem .2rem;
+  flex-wrap:wrap;
+  li{
+    width: 20%;
+    max-width: 20%;
+    min-width: 20%;
+    text-align: center;
+    padding: .1rem 0;
+    img{
+      width: 1rem;
+      height: 1rem;
     }
   }
 }
