@@ -9,6 +9,9 @@ html,body{
   max-width: 750px;
   margin: auto;
 }
+ul,li,ol{
+  list-style: none;
+}
 a{
   text-decoration: none;
   color: #333;
@@ -241,6 +244,7 @@ table{
     }
   }
 }
+
 .page-no{
   width: 10rem;
   width: 100%;
@@ -248,4 +252,21 @@ table{
   border: 1px solid #ccc;
   padding-left: .2rem;
   box-sizing: border-box;
+}
+.category{
+  display: flex;
+  background: #fff;
+  padding: .1rem .2rem;
+  flex-wrap:wrap;
+  li{
+    width: 20%;
+    max-width: 20%;
+    min-width: 20%;
+    text-align: center;
+    padding: .1rem 0;
+    img{
+      width: 1rem;
+      height: 1rem;
+    }
+  }
 }
