@@ -81,4 +81,19 @@ $('#navAdd').on('click', function(){
       $('.navName').val('');
     }
   })
+});
+$('.update-commodity').on('click', function(){
+  var id = $(this).attr('data-id');
+  var page_no = $(this).parent().siblings().find('.page-no').val();
+  if(page_no == ''){
+    layer.msg('请输入页数')
+    return false;
+  }
+  $.myGetJSON({
+    url:'/api/getUpdateCommdity?material_id='+id+'&page_no='+page_no,
+    success: function(res){
+      console.log(res);
+      layer.msg(res.msg)
+    }
+  })
 })

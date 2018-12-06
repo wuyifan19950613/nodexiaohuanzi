@@ -6,6 +6,8 @@ html,body{
   background: #f0f0f0;
   font-size: .24rem;
   color: #333;
+  max-width: 750px;
+  margin: auto;
 }
 a{
   text-decoration: none;
@@ -151,6 +153,12 @@ table{
   .navigation-swiper{
     height: .9rem;
     padding: 0 .2rem;
+    a{
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
     .nav-slide{
       text-align: center;
       display: inline-block;
@@ -232,4 +240,12 @@ table{
       margin-left: .1rem;
     }
   }
+}
+.page-no{
+  width: 10rem;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ccc;
+  padding-left: .2rem;
+  box-sizing: border-box;
 }

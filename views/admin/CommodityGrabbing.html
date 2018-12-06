@@ -1,0 +1,21 @@
+<% include ../modules/searchHeader.html %>
+</head>
+<body>
+  <% include ../modules/topNav.html %>
+  <div class="main">
+    <table class="update">
+
+        <% for (var i = 0; i<Navigation.data.length; i++) {%>
+          <tr>
+            <td><%= Navigation.data[i].title%></td>
+            <td><input type="number" class="page-no" placeholder="输入页数"></td>
+            <td><div class="delete update-commodity" data-id="<%= Navigation.data[i].navId%>">更新</div></td>
+          </tr>
+        <% } %>
+
+
+    </table>
+  </div>
+</body>
+<script type="text/javascript" src="/js/admin.js"></script>
+</html>
