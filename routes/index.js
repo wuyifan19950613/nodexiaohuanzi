@@ -15,5 +15,10 @@ router.get('/search', async function(req, res, next) {
   console.log(req.query.searchName);
   res.render('search', { title: '搜索 "'+req.query.searchName+'" 的结果', searchName: req.query.searchName});
 });
+router.get('/shopDetail', async function(req, res, next) {
+  // console.log(req.query.item_id)
+  var detail = (await request.get(`/api/getCommodityDetails?item_id=${req.query.item_id}`)).body;
+  res.render('detail', { title: '商品详情页', detail: detail.data[0]});
+});
 
 module.exports = router;
