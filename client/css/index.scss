@@ -279,3 +279,86 @@ table{
     font-weight: normal;
   }
 }
+.commodity-money{
+  display: flex;
+  padding: 0 .2rem .2rem .2rem;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: flex-end;
+  color: #787878;
+  .left{
+    flex: 1;
+    div{
+      display: inline-block;
+    }
+    .jh{
+      color: #f95e5b;
+    }
+    .yj{
+      padding-left: .2rem;
+    }
+    .original-price{
+      text-decoration: line-through;
+    }
+    .folding{
+      font-size: .4rem;
+    }
+  }
+  .right{
+    flex: .5;
+    font-size: .24rem;
+    text-align: right;
+  }
+}
+.password-box{
+  margin-top: .2rem;
+  padding: .2rem;
+  background: #fff;
+  .password-title{
+    background: #f95e5b;
+    color: #fff;
+    text-align: center;
+    padding: .2rem 0;
+    font-size: .26rem;
+  }
+  .password{
+    text-align: center;
+    border: 1px dashed #f95e5b;
+    .password-text, .password-reamrk{
+      margin: .2rem 0;
+      font-size: .26rem;
+    }
+  }
+}
+.bottom-fiexd{
+  height: 1rem;
+  position: fixed;
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  -webkit-box-shadow: 0 -3px 10px #dedede;
+  box-shadow: 0 -3px 10px #dedede;
+  display: flex;
+  justify-content: flex-end;
+  .purchase{
+    background: #f95e5b;
+    color: #fff;
+    font-size: .26rem;
+    height: 100%;
+    padding: 0 .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .url-purch{
+    background: #000;
+    color: #fff;
+    font-size: .26rem;
+    height: 100%;
+    padding: 0 .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

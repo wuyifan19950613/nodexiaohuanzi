@@ -2,9 +2,52 @@
 </head>
 <body>
   <div class="commodity-details">
-    <img src="<%= detail.pict_url%>" alt="">
+    <div class="swiper-container details-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="<%= detail.pict_url%>" alt="">
+        </div>
+        <% for(var i = 0; i < simple.msg.small_images.string.length; i++) {%>
+          <div class="swiper-slide" >
+            <img src="<%= simple.msg.small_images.string[i]%>" alt="">
+          </div>
+        <%}%>
+      </div>
+    </div>
     <h1 class="details-title"><%= detail.title%></h1>
+    <div class="commodity-money">
+      <div class="left">
+        <div class="jh">
+          劵后价￥<span class="folding"><%= (detail.zk_final_price - detail.coupon_amount).toFixed(2)%></span>
+        </div>
+        <div class="yj">
+          (原价￥<span class="original-price"><%= detail.zk_final_price%></span>)
+        </div>
+      </div>
+      <div class="right">
+        已售<%= detail.volume%>件
+      </div>
+    </div>
   </div>
-
+  <div class="password-box">
+    <div class="password-title purchase">一键点击复制淘口令</div>
+    <div class="password">
+      <p class="password-text">￥口令生成中￥</p>
+      <p class="password-reamrk">复制这条信息，打开【手机淘宝】即可领劵购买</p>
+    </div>
+  </div>
+  <div class="bottom-fiexd">
+    <div class="purchase">口令购买</div>
+    <a class="url-purch" href="<%= detail.coupon_click_url%>">立即领劵</a>
+  </div>
 </body>
+<script type="text/javascript">
+  const infoData = {
+  	title: '<%= detail.title%>',
+  	url: 'https:<%= detail.coupon_click_url%>',
+  	logo: '<%= detail.pict_url%>',
+  }
+</script>
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/details.js"></script>
 </html>

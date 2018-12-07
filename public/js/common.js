@@ -1,7 +1,7 @@
 // 接口地址
-// var devBaseURL = 'http://192.168.80.16:3000';
+var devBaseURL = 'http://192.168.80.16:3000';
 // var devBaseURL = 'http://api.xiaohuanzi.cn';
-var devBaseURL = 'http://192.168.0.103:3000';
+// var devBaseURL = 'http://192.168.0.103:3000';
 
 var MyMethods = {
   CouponNum: function(v){
