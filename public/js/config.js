@@ -13,7 +13,7 @@
 // }
 // var baseUrl = config.protocol + '://' + config.host + ':' + config.port;
 
-线上
+// 线上
 var config = {
   protocol: 'http',
   host: 'api.xiaohuanzi.cn'
