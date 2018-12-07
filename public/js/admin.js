@@ -86,7 +86,11 @@ $('.update-commodity').on('click', function(){
   var id = $(this).attr('data-id');
   var page_no = $(this).parent().siblings().find('.page-no').val();
   if(page_no == ''){
-    layer.msg('请输入页数')
+    layer.open({
+      content: '请输入页数'
+      ,skin: 'msg'
+      ,time: 2 //2秒后自动关闭
+    });
     return false;
   }
   $.myGetJSON({
