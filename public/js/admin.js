@@ -92,8 +92,11 @@ $('.update-commodity').on('click', function(){
   $.myGetJSON({
     url:'/api/getUpdateCommdity?material_id='+id+'&page_no='+page_no,
     success: function(res){
-      console.log(res);
-      layer.msg(res.msg)
+      layer.open({
+        content: res.msg
+        ,skin: 'msg'
+        ,time: 2 //2秒后自动关闭
+      });
     }
   })
 })
