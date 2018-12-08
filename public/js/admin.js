@@ -85,7 +85,7 @@ $('#navAdd').on('click', function(){
 $('.update-commodity').on('click', function(){
   var id = $(this).attr('data-id');
   var page_no = $(this).parent().siblings().find('.page-no');
-  for (var i = 0; i < 50; i ++) {
+  for (var i = 0; i < 30; i ++) {
     page_no.val(i);
     $.myGetJSON({
       url:'/api/getUpdateCommdity?material_id='+id+'&page_no='+i,
