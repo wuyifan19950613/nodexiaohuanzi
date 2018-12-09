@@ -118,7 +118,7 @@ setInterval(() => {
       })
     }
   }
-}, 300000);
+}, 1800000);
 
 $('.update-all').on('click', function () {
   var page_no = 0;
