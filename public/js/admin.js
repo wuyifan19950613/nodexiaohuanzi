@@ -104,19 +104,19 @@ $('.update-commodity').on('click', function(){
   }
 })
 
-// $('.update-all').on('click', function () {
-//   var page_no = 0;
-//   for (var i = 0; i < $('.update-commodity').length; i++) {
-//     $.myGetJSON({
-//       url:'/api/getUpdateCommdity?material_id='+id+'&page_no='+page_no,
-//       success: function(res){
-//         page_no ++;
-//         layer.open({
-//           content: res.msg
-//           ,skin: 'msg'
-//           ,time: 2 //2秒后自动关闭
-//         });
-//       }
-//     })
-//   }
-// })
+$('.update-all').on('click', function () {
+  var page_no = 0;
+  for (var i = 0; i < $('.update-commodity').length; i++) {
+    var item_id = $('.update-commodity').eq(i).attr('data-id');
+    for (var j = 0; j < 30; j ++) {
+      $.myGetJSON({
+        url:'/api/getUpdateCommdity?material_id='+item_id+'&page_no='+j,
+        success: function(res){
+          if(res.code == 201) {
+            return false;
+          }
+        }
+      })
+    }
+  }
+})
