@@ -10,7 +10,7 @@ function PostUpdateType(searchName, pageNum){
     url:'/api/taobao/materialOptional?pageSize=100&pageNum='+pageNum+'&searchName='+searchName,
     success: function(res){
       var map_data = res.msg.result_list.map_data;
-      count = parseInt(map_data.length);
+      count = res.msg.total_results;
       for(var i = 0; i<map_data.length; i++){
         var num_iid = map_data[i].num_iid;
         var coupon_info = map_data[i].coupon_info;
