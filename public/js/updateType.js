@@ -23,7 +23,7 @@ function PostUpdateType(searchName, pageNum){
         map_data[i].coupon_amount = CouponNum(coupon_info);
       }
       nowCount = parseInt(nowCount) + parseInt(map_data.length);
-      console.log(count, nowCount)
+      console.log('总数据'+count+',已更新'+nowCount);
       $.myPostJSON({
         url: '/api/updateType',
         data: JSON.stringify(map_data),
