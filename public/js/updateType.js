@@ -1,8 +1,12 @@
 var count = 0;
 var nowCount = 0;
+var pageNum = 1;
 $('.update-btn').on('click', function(){
-  var searchName = $('.input-base').val();
-  var pageNum = 1;
+  var searchName = $('.keyword').val();
+  var input_pagenum = $('.pagenum').val();
+  if(input_pagenum != ''){
+    pageNum = input_pagenum
+  }
   PostUpdateType(searchName, pageNum);
 });
 function PostUpdateType(searchName, pageNum){
