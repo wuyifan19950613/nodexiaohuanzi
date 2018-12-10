@@ -57,6 +57,10 @@ img{
     flex:1;
     color: #fff;
     font-size: .32rem;
+    white-space: nowrap;
+    width: 100%; 
+    overflow: hidden;
+    text-overflow:ellipsis;
   }
 }
 .main{
