@@ -8,7 +8,7 @@
 // 公司
 // var config = {
 //   protocol: 'http',
-//   host: '192.168.0.128',
+//   host: '192.168.80.16',
 //   port: 3000,
 // }
 // var baseUrl = config.protocol + '://' + config.host + ':' + config.port;

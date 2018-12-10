@@ -11,4 +11,7 @@ module.exports = function(app){
     var Navigation = (await request.get('/api/getNavigation')).body;
     res.render('admin/CommodityGrabbing', { title: '商品更新', Navigation: Navigation,});
   });
+  app.get('/admin/updateType', async function(req, res, next) {
+    res.render('admin/updateType', { title: '商品更新'});
+  });
 }
