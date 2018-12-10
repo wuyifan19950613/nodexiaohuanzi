@@ -13,6 +13,9 @@ function PostUpdateType(searchName, pageNum){
   $.myGetJSON({
     url:'/api/taobao/materialOptional?pageSize=100&pageNum='+pageNum+'&searchName='+searchName,
     success: function(res){
+      if(!res.msg.result_list){
+        PostUpdateType(searchName, pageNum)
+      }
       var map_data = res.msg.result_list.map_data;
       count = res.msg.total_results;
       for(var i = 0; i<map_data.length; i++){
