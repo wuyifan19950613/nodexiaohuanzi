@@ -12,7 +12,7 @@ function searchList(pageNum){
         html+='<li class="">';
         html+='<a href="'+commlist[i].coupon_share_url+'">';
         html+='<div class="img-url">';
-        html+='<img src="'+commlist[i].pict_url+'" alt="">';
+        html+='<img src="'+commlist[i].pict_url+'" data-original="'+commlist[i].pict_url+'" alt="">';
         html+='</div>';
         html+='<div class="commodity">';
         html+='<h1 class="commodity-title">'+commlist[i].title+'</h1>';
@@ -25,6 +25,7 @@ function searchList(pageNum){
         html+='</a></li>';
       }
       $('.recommend-list').append(html);
+      $("img").lazyload({effect: "fadeIn"});
     }
   });
 }

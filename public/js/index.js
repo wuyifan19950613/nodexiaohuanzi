@@ -9,7 +9,6 @@ var navbackColor = [
   '#e6569e',
 ];
 var ShopPageNum = 1;
-
 var mySwiper = new Swiper ('.index-banner', {
   autoplay: {
     delay: 3000,//1秒切换一次
@@ -73,7 +72,7 @@ function shopList(i,pageNum,laoding){
         html+='<li class="">';
         html+='<a href="'+commlist[i].coupon_click_url+'">';
         html+='<div class="img-url">';
-        html+='<img src="'+commlist[i].pict_url+'" alt="">';
+        html+='<img data-original="'+commlist[i].pict_url+'" src="'+commlist[i].pict_url+'"  alt="">';
         html+='</div>';
         html+='<div class="commodity">';
         html+='<h1 class="commodity-title">'+commlist[i].title+'</h1>';
@@ -87,6 +86,7 @@ function shopList(i,pageNum,laoding){
       }
       laoding = true;
       $('.recommend-list').html(html);
+      $("img").lazyload({effect: "fadeIn"});
     }
   })
 }
