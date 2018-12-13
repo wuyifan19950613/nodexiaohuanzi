@@ -57,3 +57,5 @@ function CouponNum(v){
   const result = parseInt(v.substr(index + 1,v.length));
   return result;
 }
+var number = (123/100).toFixed(2);
+console.log(Math.floor(number*440)/100)

@@ -58,7 +58,7 @@ img{
     color: #fff;
     font-size: .32rem;
     white-space: nowrap;
-    width: 100%; 
+    width: 100%;
     overflow: hidden;
     text-overflow:ellipsis;
   }
@@ -220,15 +220,31 @@ table{
       /* autoprefixer: on */
     }
     .used-coupon{
-      background: #f95e5b;
+      background: #000;
       display: inline-block;
-      border-radius: .2rem;
+      border-radius: .1rem;
       color: #fff;
       font-size: .24rem;
       padding-left: .2rem;
       line-height: .3rem;
       padding-right: .2rem;
       margin-top: .15rem;
+      margin-right: .2rem;
+      height: .35rem;
+      line-height: .35rem;
+    }
+    .used-envelope{
+      background: #ff504d;
+      display: inline-block;
+      border-radius: .1rem;
+      color: #fff;
+      font-size: .24rem;
+      padding-left: .2rem;
+      line-height: .3rem;
+      padding-right: .2rem;
+      margin-top: .15rem;
+      height: .35rem;
+      line-height: .35rem;
     }
     .price{
       font-size: .22rem;
@@ -275,6 +291,7 @@ table{
 }
 .commodity-details{
   background: #fff;
+  padding-bottom: .2rem;
   .details-title{
     font-size: .28rem;
     padding: .2rem;
@@ -392,4 +409,31 @@ table{
   color: #fff;
   margin-top: .2rem;
   padding: .2rem;
+}
+.bottom-height{
+  &:after{
+    content: '';
+    height: 1rem;
+    display: block;
+  }
+}
+.envelope{
+  background: #ff504d;
+  color: #fff;
+  margin-left: .2rem;
+  padding: .05rem .1rem;
+  display: inline-block;
+  border-radius: .1rem;
+  height: .3rem;
+  line-height: .3rem;
+}
+.counp{
+  background: #000;
+  color: #fff;
+  margin-left: .2rem;
+  padding: .05rem .1rem;
+  display: inline-block;
+  border-radius: .1rem;
+  height: .3rem;
+  line-height: .3rem;
 }

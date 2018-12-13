@@ -69,18 +69,40 @@ function shopList(i,pageNum,laoding){
       commlist = res.msg.result_list.map_data;
       var html = '';
       for(var i= 0; i<commlist.length;i++){
+        // html+='<li class="">';
+        // html+='<a href="'+commlist[i].coupon_click_url+'">';
+        // html+='<div class="img-url">';
+        // html+='<img data-original="'+commlist[i].pict_url+'" src="'+commlist[i].pict_url+'"  alt="">';
+        // html+='</div>';
+        // html+='<div class="commodity">';
+        // html+='<h1 class="commodity-title">'+commlist[i].title+'</h1>';
+        // html+='<div class="price">';
+        // html+='<span class="sale-price">￥<b>'+(commlist[i].zk_final_price - commlist[i].coupon_amount).toFixed(2)+'</b></span>';
+        // html+='<span class="market-price">¥'+commlist[i].zk_final_price+'</span>';
+        // html+='</div>';
+        // html+='<div class="used-coupon">  劵 '+commlist[i].coupon_amount+'元</div>';
+        // html+='</div>';
+        // html+='</a></li>';
+
         html+='<li class="">';
         html+='<a href="'+commlist[i].coupon_click_url+'">';
         html+='<div class="img-url">';
-        html+='<img data-original="'+commlist[i].pict_url+'" src="'+commlist[i].pict_url+'"  alt="">';
+        html+='<img src="'+commlist[i].pict_url+'" data-original="'+commlist[i].pict_url+'" alt="">';
         html+='</div>';
         html+='<div class="commodity">';
         html+='<h1 class="commodity-title">'+commlist[i].title+'</h1>';
         html+='<div class="price">';
         html+='<span class="sale-price">￥<b>'+(commlist[i].zk_final_price - commlist[i].coupon_amount).toFixed(2)+'</b></span>';
-        html+='<span class="market-price">¥'+commlist[i].zk_final_price+'</span>';
+        if (commlist[i].coupon_info != '') {
+          html+='<span class="market-price">¥'+commlist[i].zk_final_price+'</span>';
+        }
         html+='</div>';
-        html+='<div class="used-coupon">  劵 '+commlist[i].coupon_amount+'元</div>';
+        html+='<div>';
+        if(commlist[i].coupon_info !== '' || commlist[i].coupon_info == '0') {
+          html+='<div class="used-coupon">  劵：'+commlist[i].coupon_amount+'元</div>';
+        }
+        html+='<div class="used-envelope">返：'+Math.floor((Math.floor(commlist[i].commission_rate  * (commlist[i].zk_final_price - commlist[i].coupon_amount)) / 100) / 2 * 100) / 100+'元</div>'
+        html+='</div>';
         html+='</div>';
         html+='</a></li>';
       }
