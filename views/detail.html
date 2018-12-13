@@ -47,7 +47,7 @@
       </div>
       <% } %>
       <div class="envelope">
-        返：<%= Math.floor((Math.floor((detail.commission_rate / 100).toFixed(2) * (detail.zk_final_price - detail.coupon_amount)) / 100) / 2 * 100) / 100 %>元
+        返：<%= Math.floor((Math.floor((detail.commission_rate / 100).toFixed(2) * (detail.zk_final_price - detail.coupon_amount)) / 100) * .7 * 100) / 100 %>元
       </div>
     </div>
     <div class="password-box">

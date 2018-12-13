@@ -26,7 +26,7 @@ function searchList(pageNum){
         if(commlist[i].coupon_info !== '' || commlist[i].coupon_info == '0') {
           html+='<div class="used-coupon">  劵：'+(commlist[i].coupon_info == '' ? 0 : MyMethods.CouponNum(commlist[i].coupon_info))+'元</div>';
         }
-        html+='<div class="used-envelope">返：'+Math.floor((Math.floor((commlist[i].commission_rate / 100).toFixed(2) * (commlist[i].zk_final_price - (commlist[i].coupon_info == '' ? 0 : MyMethods.CouponNum(commlist[i].coupon_info)))) / 100) / 2 * 100) / 100+'元</div>'
+        html+='<div class="used-envelope">返：'+Math.floor((Math.floor((commlist[i].commission_rate / 100).toFixed(2) * (commlist[i].zk_final_price - (commlist[i].coupon_info == '' ? 0 : MyMethods.CouponNum(commlist[i].coupon_info)))) / 100) * 0.7 * 100) / 100+'元</div>'
         html+='</div>';
         html+='</div>';
         html+='</a></li>';
@@ -66,7 +66,7 @@ window.addEventListener('scroll',function(){
           if(commlist[i].coupon_info !== '' || commlist[i].coupon_info == '0') {
             html+='<div class="used-coupon">  劵：'+(commlist[i].coupon_info == '' ? 0 : MyMethods.CouponNum(commlist[i].coupon_info))+'元</div>';
           }
-          html+='<div class="used-envelope">返：'+Math.floor((Math.floor((commlist[i].commission_rate / 100).toFixed(2) * (commlist[i].zk_final_price - (commlist[i].coupon_info == '' ? 0 : MyMethods.CouponNum(commlist[i].coupon_info)))) / 100) / 2 * 100) / 100+'元</div>'
+          html+='<div class="used-envelope">返：'+Math.floor((Math.floor((commlist[i].commission_rate / 100).toFixed(2) * (commlist[i].zk_final_price - (commlist[i].coupon_info == '' ? 0 : MyMethods.CouponNum(commlist[i].coupon_info)))) / 100) * 0.7 * 100) / 100+'元</div>'
           html+='</div>';
           html+='</div>';
           html+='</a></li>';
