@@ -41,9 +41,11 @@
           已售<%= detail.volume%>件
         </div>
       </div>
+      <% if (detail.coupon_amount != '0') {%>
       <div class="counp">
         劵：<%= detail.coupon_amount%>元
       </div>
+      <% } %>
       <div class="envelope">
         返：<%= Math.floor((Math.floor((detail.commission_rate / 100).toFixed(2) * (detail.zk_final_price - detail.coupon_amount)) / 100) / 2 * 100) / 100 %>元
       </div>
