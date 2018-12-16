@@ -14,4 +14,7 @@ module.exports = function(app){
   app.get('/admin/updateType', async function(req, res, next) {
     res.render('admin/updateType', { title: '商品更新'});
   });
+  app.get('/admin/Order', function (req, res, next) {
+    res.render('admin/Order', {title: '订单明细'})
+  })
 }
