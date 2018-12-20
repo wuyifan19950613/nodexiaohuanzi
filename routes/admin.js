@@ -26,4 +26,7 @@ module.exports = function(app){
   app.get('/admin/home', async function(req, res, next) {
     res.render('admin/home', { title: '个人中心'});
   });
+  app.get('/admin/Order', function (req, res, next) {
+    res.render('admin/Order', {title: '订单明细'})
+  })
 }
