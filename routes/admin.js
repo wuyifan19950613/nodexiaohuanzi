@@ -14,4 +14,16 @@ module.exports = function(app){
   app.get('/admin/updateType', async function(req, res, next) {
     res.render('admin/updateType', { title: '商品更新'});
   });
+  app.get('/admin/login', async function(req, res, next) {
+    res.render('admin/login', { title: '登录'});
+  });
+  app.get('/admin/register', async function(req, res, next) {
+    res.render('admin/register', { title: '注册'});
+  });
+  app.get('/admin/orderInquiry', async function(req, res, next) {
+    res.render('admin/orderInquiry', { title: '订单查询'});
+  });
+  app.get('/admin/home', async function(req, res, next) {
+    res.render('admin/home', { title: '个人中心'});
+  });
 }

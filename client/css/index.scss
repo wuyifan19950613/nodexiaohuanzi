@@ -437,3 +437,138 @@ table{
   height: .3rem;
   line-height: .3rem;
 }
+.login-box{
+  position: fixed;
+  top: .95rem;
+  width: 100%;
+  height: calc(100% - .95rem);
+  background: url('/images/login-bj.jpg')no-repeat bottom;
+  background-size: 100% 100%;
+  &.register{
+    background: url('/images/register-bj.jpg')no-repeat bottom;
+    background-size: 100% 100%;
+  }
+  .title{
+    font-size: .32rem;
+    font-weight: normal;
+    text-align: center;
+    margin-top: .95rem;
+  }
+  .admin-input-box{
+    margin-top: 1rem;
+  }
+  .input-login{
+    display: block;
+    width: 80%;
+    margin: .2rem auto;
+    border: none;
+    border-bottom: 1px solid #000;
+    height: .8rem;
+    outline: none;
+  }
+}
+.login-btn-box{
+  display:  flex;
+  justify-content: center;
+  align-items: center;
+  .basebtn {
+    border: 1px solid #000;
+    color: #000;
+    font-weight: normal;
+    font-size: .35rem;
+    text-align: center;
+    width: 2.5rem;
+    margin: .8rem .2rem;
+    padding: .15rem 0;
+    &.login-btn{
+      background: #000;
+      color: #fff;
+    }
+  }
+}
+.order-box{
+  .order-list{
+    li{
+      background: #fff;
+      margin: .2rem 0;
+      padding: .1rem;
+    }
+    .title{
+      font-size: .26rem;
+      text-align: left;
+      padding: .2rem 0;
+    }
+  }
+  .order-search{
+    display: flex;
+    justify-content: center;
+    input{
+      flex: 1;
+      border: 1px solid #000;
+      height: .7rem;
+      padding-left: .2rem;
+    }
+    .search-btn{
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 .3rem;
+    }
+  }
+}
+.personal-center{
+  .info-input{
+    margin-top: .4rem;
+    display: none;
+    .info-save{
+      height: .8rem;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      font-size: .35rem;
+      line-height: .8rem;
+    }
+    input{
+      display: block;
+      height: .8rem;
+      width: 100%;
+      border: 1px solid #eee;
+      padding-left: .2rem;
+      box-sizing: border-box;
+      margin-bottom: .2rem;
+    }
+  }
+  .name{
+    font-size: .28rem;
+    font-weight: normal;
+    text-align: center;
+  }
+  .home-main{
+    background: #fff;
+    margin-top: .8rem;
+    display: flex;
+    text-align: center;
+    .list{
+      flex: 1;
+      padding: .2rem;
+      border: 1px solid #eee;
+      .order-icon{
+        background-image: url(/images/me_order.png);
+        background-size: 100%;
+        width: .6rem;
+        height: .6rem;
+        display: block;
+        margin: 0 auto .2rem;
+      }
+      .xiugai{
+        background-image: url(/images/xiugai.png);
+        background-size: 100%;
+        width: .6rem;
+        height: .6rem;
+        display: block;
+        margin: 0 auto .2rem;
+      }
+    }
+  }
+}
