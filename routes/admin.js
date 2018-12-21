@@ -1,7 +1,7 @@
 var request = require('./request');
 
 module.exports = function(app){
-  app.get('/admin/index', function(req, res, next) {
+  app.get('/admin', function(req, res, next) {
     res.render('admin/index', { title: '后台管理' });
   });
   app.get('/admin/nav', function(req, res, next) {

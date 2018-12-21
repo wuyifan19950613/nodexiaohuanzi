@@ -26,7 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use(function(req, res, next){
-  console.log(req.localstorage)
+  var user = req.cookies.user;
+  var originalUrl = req.originalUrl;
+  if(originalUrl !== '/admin/login' && user == undefined) {
+    return res.redirect('/admin/login');//页面重定向；
+  }
+  next()
 })
 admin(app);
 // catch 404 and forward to error handler

@@ -1,5 +1,4 @@
-var userInfo = JSON.parse(mystorage.get('user'));
-console.log(userInfo)
+var userInfo = JSON.parse(Cookie.get('user'));
 $('.personal-center .name').html(userInfo.userName);
 $('input[name="userName"]').val(userInfo.userName);
 $('input[name="Rebate"]').val(userInfo.Rebate);
@@ -30,7 +29,7 @@ $('.info-save').on('click', function(){
           ,skin: 'msg'
           ,time: 2 //2秒后自动关闭
           ,success: function(){
-            mystorage.set('user', JSON.stringify(res.data));
+            Cookie.set('user', JSON.stringify(res.data));
             $('.personal-center .name').html(res.data.userName);
             $('.info-input').hide();
           }
