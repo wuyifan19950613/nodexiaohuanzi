@@ -1,0 +1,37 @@
+<% include ../modules/searchHeader.html %>
+</head>
+<body>
+  <% include ../modules/topNav.html %>
+  <div class="main user-edit">
+    <div class="edit-info">
+      <label>用户类型</label>
+      <input name="type" type="number" value="<%= type%>" placeholder="">
+    </div>
+    <div class="edit-info">
+      <label>用户PID</label>
+      <input name="pid" type="number" value="<%= pid%>" placeholder="">
+    </div>
+    <div class="btn edit-btn">修改成功</div>
+  </div>
+</body>
+<script type="text/javascript">
+  $('.edit-btn').on('click', function(){
+    var type = $('input[name="type"]').val();
+    var pid = $('input[name="pid"]').val();
+    var id = '<%= id%>'
+    $.myGetJSON({
+      url: '/api/userEdit?id='+id+'&pid='+pid+'&type='+type,
+      success: function(res){
+        layer.open({
+          content: '修改成功'
+          ,skin: 'msg'
+          ,time: 2 //2秒后自动关闭
+        });
+        setTimeout(function(){
+          window.location.href = '/admin/userManagement'
+        },1500)
+      }
+    })
+  })
+</script>
+</html>

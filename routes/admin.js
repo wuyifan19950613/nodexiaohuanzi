@@ -28,5 +28,11 @@ module.exports = function(app){
   });
   app.get('/admin/Order', function (req, res, next) {
     res.render('admin/Order', {title: '订单明细'})
-  })
+  });
+  app.get('/admin/userManagement', function (req, res, next) {
+    res.render('admin/userManagement', {title: '用户管理'});
+  });
+  app.get('/admin/userInfoEdit', function (req, res, next) {
+    res.render('admin/userInfoEdit', {title: '用户修改资料', id: req.query.id, type: req.query.type, pid: req.query.pid});
+  });
 }

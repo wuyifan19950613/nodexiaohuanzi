@@ -28,7 +28,14 @@ $.myGetJSON = function(options) {
   var contentType = options.options || 'application/json;charset=utf-8';
   var data = options.data || '';
   var dataType = options.dataType || 'json';
+  var token = '';
+  if (Cookie.get('user') && JSON.parse(Cookie.get('user')) !== null) {
+    token = JSON.parse(Cookie.get('user'))._id;
+  }
   $.ajax({
+    headers: {
+      token: token
+    },
     url: url,
     type: 'GET',
     dataType: dataType,

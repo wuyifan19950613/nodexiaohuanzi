@@ -553,6 +553,9 @@ table{
       flex: 1;
       padding: .2rem;
       border: 1px solid #eee;
+      &.user-management{
+        display: none;
+      }
       .order-icon{
         background-image: url(/images/me_order.png);
         background-size: 100%;
@@ -569,6 +572,51 @@ table{
         display: block;
         margin: 0 auto .2rem;
       }
+      .user{
+        background-image: url(/images/user.png);
+        background-size: 100%;
+        width: .6rem;
+        height: .6rem;
+        display: block;
+        margin: 0 auto .2rem;
+      }
+    }
+  }
+}
+.text-center{
+  text-align: center;
+}
+.edit-info{
+  background: #fff;
+  padding: .2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  label{
+    display: inline-block;
+    margin-right: .2rem;
+  }
+  input{
+    height: .5rem;
+    flex: 1;
+    border: 1px solid #eee;
+    padding-left: .2rem;
+  }
+}
+.edit-btn{
+  text-align: center;
+  font-size: .3rem;
+}
+.order-nav{
+  margin: .2rem 0;
+  display: flex;
+  background: #fff;
+  div{
+    flex: 1;
+    text-align: center;
+    padding: .2rem 0;
+    &.active{
+      border-bottom: 2px solid #000;
     }
   }
 }

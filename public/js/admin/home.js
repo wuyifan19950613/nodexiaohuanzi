@@ -1,4 +1,8 @@
 var userInfo = JSON.parse(Cookie.get('user'));
+console.log(userInfo);
+if (userInfo.type == 3) {
+  $('.user-management').show();
+}
 $('.personal-center .name').html(userInfo.userName);
 $('input[name="userName"]').val(userInfo.userName);
 $('input[name="Rebate"]').val(userInfo.Rebate);
