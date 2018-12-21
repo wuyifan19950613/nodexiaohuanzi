@@ -2,7 +2,10 @@ var request = require('./request');
 
 module.exports = function(app){
   app.get('/admin', function(req, res, next) {
-    res.render('admin/index', { title: '后台管理' });
+    res.render('admin/home', { title: '个人中心' });
+  });
+  app.get('/admin/index', function(req, res, next) {
+    res.render('admin/index', { title: 'banner管理' });
   });
   app.get('/admin/nav', function(req, res, next) {
     res.render('admin/nav', { title: '首页导航管理' });
