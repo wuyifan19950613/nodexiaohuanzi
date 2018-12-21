@@ -45,6 +45,7 @@ function formData(i) {
     url: '/api/orderInquiry?tk_status='+i,
     success: function(res){
       var html = '';
+      var count = 0;
       html+='<tr>';
       html+='<th>创建时间</th>';
       html+='<th>商品名称</th>';
@@ -54,6 +55,7 @@ function formData(i) {
       html+='</tr>';
       for (var i = 0; i < res.data.length; i++) {
         var orderStatus = '';
+        count = count + Number(res.data[i].pub_share_pre_fee);
         if (res.data[i].tk_status == 3) {
           orderStatus = '订单结算';
         } else if (res.data[i].tk_status == 14) {
@@ -71,6 +73,7 @@ function formData(i) {
         html+= '<td>'+res.data[i].pub_share_pre_fee+'</td>';
         html+= '</tr>';
       }
+      html+='<tr><td></td><td></td><td></td><td>总收入：</td><td>'+count+'</td></tr>'
       $('.order-table').html(html);
     }
   })
