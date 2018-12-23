@@ -1,7 +1,7 @@
 // 家里
 // var config = {
 //   protocol: 'http',
-//   host: '192.168.0.103',
+//   host: '192.168.0.118',
 //   port: 3000,
 // }
 // var baseUrl = config.protocol + '://' + config.host + ':' + config.port;
