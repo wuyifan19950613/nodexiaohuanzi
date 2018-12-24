@@ -3,8 +3,8 @@ $.myGetJSON({
   success: function(res){
     // res.data
     console.log(res);
+    var html = '';
     for (var i = 0; i< res.data.length; i++) {
-      var html = '';
       html+='<tr>';
       html+='<td>'+res.data[i].userName+'</td>';
       html+='<td>'+res.data[i].type+'</td>';
