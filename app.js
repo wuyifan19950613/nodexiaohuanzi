@@ -28,7 +28,7 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next){
   var user = req.cookies.user;
   var originalUrl = req.originalUrl;
-  if(originalUrl !== '/admin/login' && user == undefined) {
+  if(originalUrl !== '/admin/login' && originalUrl !== '/admin/register' && user == undefined) {
     return res.redirect('/admin/login');//页面重定向；
   }
   next()
