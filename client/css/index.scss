@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
 }
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearfloat{zoom:1}
 html,body{
   background: #f0f0f0;
   font-size: .24rem;
@@ -618,6 +620,19 @@ table{
 #cnzz_stat_icon_1275778804{
   display: none;
 }
+.base-title{
+  flex: 1;
+  padding: .2rem;
+  border-bottom: 1px solid #eee;
+  .left{
+    float: left;
+    font-weight: bold;
+  }
+  .right{
+    float: right;
+    color: #b8b8b8;
+  }
+}
 .plate{
   background: #fff;
   padding: .2rem;
@@ -684,4 +699,12 @@ table{
 }
 .mt20{
   margin-bottom: .2rem;
+}
+.border20{
+  border-radius: .2rem;
+  overflow: hidden;
+  background: #fff;
+}
+.order-box{
+  display: flex;
 }
