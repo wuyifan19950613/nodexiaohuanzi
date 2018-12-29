@@ -605,9 +605,7 @@ table{
   font-size: .3rem;
 }
 .order-nav{
-  margin: .2rem 0;
   display: flex;
-  background: #fff;
   div{
     flex: 1;
     text-align: center;
@@ -705,7 +703,7 @@ table{
   overflow: hidden;
   background: #fff;
 }
-.order-box{
+.order-main{
   display: flex;
   padding: .2rem;
   i{
@@ -717,5 +715,17 @@ table{
   }
   .settlement{
     background-image: url('/images/Ordersettlement.png');
+  }
+  .orderpayment{
+    background-image: url('/images/Orderpayment.png');
+  }
+  .orderfailure{
+    background-image: url('/images/Orderfailure.png');
+  }
+  .ordersuccess{
+    background-image: url('/images/Ordersuccess.png');
+  }
+  p{
+    margin-top: .1rem;
   }
 }
