@@ -707,4 +707,15 @@ table{
 }
 .order-box{
   display: flex;
+  padding: .2rem;
+  i{
+    display: block;
+    width: .5rem;
+    margin: auto;
+    height: .5rem;
+    background-size: 100%;
+  }
+  .settlement{
+    background-image: url('/images/Ordersettlement.png');
+  }
 }
