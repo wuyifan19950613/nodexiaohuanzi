@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
 }
+.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearfloat{zoom:1}
 html,body{
   background: #f0f0f0;
   font-size: .24rem;
@@ -70,12 +72,6 @@ img{
     height: .95rem;
   }
   padding: .2rem;
-  .title{
-    font-size: .3rem;
-    text-align: center;
-    font-weight: normal;
-    padding: .2rem;
-  }
 }
 .input-base{
   width: 100%;
@@ -440,6 +436,7 @@ table{
 .login-box{
   position: fixed;
   top: .95rem;
+  max-width: 750px;
   width: 100%;
   height: calc(100% - .95rem);
   background: url('/images/login-bj.jpg')no-repeat bottom;
@@ -608,9 +605,7 @@ table{
   font-size: .3rem;
 }
 .order-nav{
-  margin: .2rem 0;
   display: flex;
-  background: #fff;
   div{
     flex: 1;
     text-align: center;
@@ -618,5 +613,119 @@ table{
     &.active{
       border-bottom: 2px solid #000;
     }
+  }
+}
+#cnzz_stat_icon_1275778804{
+  display: none;
+}
+.base-title{
+  flex: 1;
+  padding: .2rem;
+  border-bottom: 1px solid #eee;
+  .left{
+    float: left;
+    font-weight: bold;
+  }
+  .right{
+    float: right;
+    color: #b8b8b8;
+  }
+}
+.plate{
+  background: #fff;
+  padding: .2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  .tree{
+    position: absolute;
+    right: .2rem;
+    bottom: 0;
+    background: url(/images/tree.png);
+    width: .8rem;
+    height: .8rem;
+    background-size: 100%;
+  }
+  .deer{
+    position: absolute;
+    right: .2rem;
+    bottom: 0;
+    background: url(/images/deer.png);
+    width: .8rem;
+    height: .8rem;
+    background-size: 100%;
+  }
+  .income{
+    flex: 1;
+    .title{
+      font-size: .24rem;
+      color: #b5b1b1;
+    }
+    .money{
+      font-size: .3rem;
+      color: #333;
+    }
+    .already{
+      color: #3ab725;
+    }
+    .not{
+      color: #f92828;
+    }
+  }
+  .pic{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #eee;
+    margin-right: .2rem;
+  }
+  .userInfo{
+    .name{
+      font-size: .3rem;
+    }
+    .id{
+      font-size: .24rem;
+      color: #b5b1b1;
+      margin-top: .05rem;
+    }
+  }
+}
+.income-reamrk{
+  background: #e6e3e3;
+  padding: .05rem .2rem;
+  color: #a7a7a7;
+}
+.mt20{
+  margin-bottom: .2rem;
+}
+.border20{
+  border-radius: .2rem;
+  overflow: hidden;
+  background: #fff;
+}
+.order-main{
+  display: flex;
+  padding: .2rem;
+  i{
+    display: block;
+    width: .5rem;
+    margin: auto;
+    height: .5rem;
+    background-size: 100%;
+  }
+  .settlement{
+    background-image: url('/images/Ordersettlement.png');
+  }
+  .orderpayment{
+    background-image: url('/images/Orderpayment.png');
+  }
+  .orderfailure{
+    background-image: url('/images/Orderfailure.png');
+  }
+  .ordersuccess{
+    background-image: url('/images/Ordersuccess.png');
+  }
+  p{
+    margin-top: .1rem;
   }
 }
