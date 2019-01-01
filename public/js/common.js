@@ -28,6 +28,7 @@ $.myGetJSON = function(options) {
   var contentType = options.options || 'application/json;charset=utf-8';
   var data = options.data || '';
   var dataType = options.dataType || 'json';
+  var async = options.async || true;
   var token = '';
   if (Cookie.get('user') && JSON.parse(Cookie.get('user')) !== null) {
     token = JSON.parse(Cookie.get('user'))._id;
@@ -40,6 +41,7 @@ $.myGetJSON = function(options) {
     type: 'GET',
     dataType: dataType,
     data: data,
+    async: async,
     contentType: contentType,
     beforeSend: function beforeSend() {
       if (options.beforeSend) options.beforeSend();

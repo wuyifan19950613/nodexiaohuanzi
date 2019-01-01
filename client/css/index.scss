@@ -488,7 +488,9 @@ table{
     li{
       background: #fff;
       margin: .2rem 0;
-      padding: .1rem;
+      padding: .1rem .2rem;
+      position: relative;
+      overflow: hidden;
     }
     .title{
       font-size: .26rem;
@@ -543,39 +545,54 @@ table{
   }
   .home-main{
     background: #fff;
-    margin-top: .8rem;
-    display: flex;
-    text-align: center;
+    padding: 0 .2rem;
+    border-radius: .2rem;
     .list{
-      flex: 1;
       padding: .2rem;
-      border: 1px solid #eee;
+      display: block;
+      border-bottom: 1px solid #e8dddd;
+      position: relative;
+      & .jt-icon{
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: .5rem;
+        height: .5rem;
+        margin-top: -0.25rem;
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+      p{
+        display: inline-block;
+        vertical-align: middle;
+      }
       &.user-management{
-        display: none;
+        display: block;
       }
       .order-icon{
         background-image: url(/images/me_order.png);
         background-size: 100%;
         width: .6rem;
         height: .6rem;
-        display: block;
-        margin: 0 auto .2rem;
+        display: inline-block;
+        vertical-align: middle;
       }
       .xiugai{
         background-image: url(/images/xiugai.png);
         background-size: 100%;
         width: .6rem;
         height: .6rem;
-        display: block;
-        margin: 0 auto .2rem;
+        display: inline-block;
+        vertical-align: middle;
       }
       .user{
         background-image: url(/images/user.png);
         background-size: 100%;
         width: .6rem;
         height: .6rem;
-        display: block;
-        margin: 0 auto .2rem;
+        display: inline-block;
+        vertical-align: middle;
       }
     }
   }
@@ -657,6 +674,7 @@ table{
   }
   .income{
     flex: 1;
+
     .title{
       font-size: .24rem;
       color: #b5b1b1;
@@ -728,4 +746,79 @@ table{
   p{
     margin-top: .1rem;
   }
+}
+.order-bottom{
+  margin-top: .2rem;
+  font-size: .22rem;
+  color: #a5a5a5;
+  display: flex;
+  .income{
+    flex: 1;
+    text-align: right;
+    span{
+      color: #ff504d;
+    }
+  }
+}
+.order-top{
+  display: flex;
+  .pict_url{
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .order-info{
+    padding-left: .2rem;
+    h6{
+      font-size: .26rem;
+      font-weight: normal;;
+      height: .3rem;
+      overflow: hidden;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+    .shop-title{
+      font-size: .24rem;
+      color: #ccc;
+      margin-top: .1rem;
+    }
+    .pay-tip{
+      display: inline-block;
+      background: #216fe4;
+      color: #fff;
+      height: .3rem;
+      padding: .05rem .05rem 0;
+      box-sizing: border-box;
+      font-size: .20rem;
+      border-radius: .1rem;
+      margin-top: .1rem;
+      &.red{
+        background: #ff504d;
+      }
+      &.active{
+        background: green;
+      }
+    }
+    .money-main{
+      display: flex;
+      text-align: center;
+      margin-top: .05rem;
+      .money-title{
+        font-size: .24rem;
+        color: #ccc;
+      }
+      .money{
+        color: #333;
+      }
+    }
+  }
+}
+.snow1{
+  position: absolute;
+  top: 1rem;
+  right: -.3rem;
+  width: .6rem;
+  height: .6rem;
 }

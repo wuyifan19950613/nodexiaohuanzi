@@ -24,7 +24,7 @@ module.exports = function(app){
     res.render('admin/register', { title: '注册'});
   });
   app.get('/admin/orderInquiry', async function(req, res, next) {
-    res.render('admin/orderInquiry', { title: '订单查询'});
+    res.render('admin/orderInquiry', { title: '订单信息'});
   });
   app.get('/admin/home', async function(req, res, next) {
     res.render('admin/home', { title: '个人中心'});
