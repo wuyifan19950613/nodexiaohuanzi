@@ -1,6 +1,6 @@
 var userInfo = JSON.parse(Cookie.get('user'));
 console.log(userInfo);
-if (userInfo.type == 3) {
+if (userInfo.type == 2) {
   $('.user-management').show();
 }
 $('.userInfo .name').html(userInfo.userName);
@@ -48,10 +48,25 @@ $('.modifying').on('click', function(){
 });
 var adzone_id = userInfo.pid;
 var myDate = new Date();
-var endTime = myDate.getFullYear()+'-'+(myDate.getMonth() +1) +'-'+ myDate.getDate() + ' 23:59:59';
-var startTime = myDate.getFullYear()+'-'+(myDate.getMonth() +1) +'-01'+' 00:00:00';
-var lastStartTime = myDate.getFullYear()+'-'+myDate.getMonth() +'-01'+' 00:00:00';
-var lastEndTime = myDate.getFullYear()+'-'+(myDate.getMonth() +1) +'-'+ myDate.getDate() + ' 23:59:59';
+var lastYear,
+    lastMonth = myDate.getMonth() - 1;
+var thisYear = myDate.getFullYear();
+var thisMonth = myDate.getMonth() +1;
+if (thisMonth < 10) {
+  thisMonth = '0'+(myDate.getMonth() +1)
+}
+if (thisMonth == 1) {
+  lastYear = thisYear - 1;
+  lastMonth = 12;
+}
+var days = MyMethods.days(thisMonth);
+var lastDays = MyMethods.days(lastMonth);
+var endTime = myDate.getFullYear()+'-'+(thisMonth) +'-'+ days + ' 23:59:59';
+var startTime = myDate.getFullYear()+'-'+(thisMonth) +'-01'+' 00:00:00';
+
+
+var lastStartTime = lastYear +'-'+ lastMonth +'-01'+' 00:00:00';
+var lastEndTime = lastYear +'-'+lastMonth +'-'+ lastDays + ' 23:59:59';
 settlement('ben', startTime ,endTime, adzone_id);
 settlement('last', lastStartTime ,lastEndTime, adzone_id);
 function settlement(dome, startTime, endTime, adzone_id){
@@ -60,7 +75,9 @@ function settlement(dome, startTime, endTime, adzone_id){
     success: function (msg) {
       var count = 0;
       for (var i = 0; i < msg.data.length; i++) {
-        count = count + parseFloat(msg.data[i].pub_share_pre_fee);
+        if (msg.data[i].tk_status == 3) {
+          count = count + parseFloat(msg.data[i].pub_share_pre_fee);
+        }
       }
       $('.'+dome+'').html(count)
     }

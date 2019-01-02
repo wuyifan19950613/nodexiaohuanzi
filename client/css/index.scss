@@ -550,7 +550,7 @@ table{
     .list{
       padding: .2rem;
       display: block;
-      border-bottom: 1px solid #e8dddd;
+      border-top: 1px solid #e8dddd;
       position: relative;
       & .jt-icon{
         position: absolute;
@@ -560,15 +560,15 @@ table{
         height: .5rem;
         margin-top: -0.25rem;
       }
-      &:last-child{
-        border-bottom: none;
+      &:first-child{
+        border-top: none;
       }
       p{
         display: inline-block;
         vertical-align: middle;
       }
       &.user-management{
-        display: block;
+        display: none;
       }
       .order-icon{
         background-image: url(/images/me_order.png);
