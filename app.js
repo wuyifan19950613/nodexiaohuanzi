@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+wechat(app);
 app.use(function(req, res, next){
   var user = req.cookies.user;
   var originalUrl = req.originalUrl;
@@ -35,7 +36,6 @@ app.use(function(req, res, next){
   next()
 })
 admin(app);
-wechat(app);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
