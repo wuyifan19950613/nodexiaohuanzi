@@ -38,4 +38,7 @@ module.exports = function(app){
   app.get('/admin/userInfoEdit', function (req, res, next) {
     res.render('admin/userInfoEdit', {title: '用户修改资料', id: req.query.id, type: req.query.type, pid: req.query.pid});
   });
+  app.get('/admin/orderStatusUpdate', function (req, res, next) {
+    res.render('admin/orderStatusUpdate', {title: '订单状态更新',});
+  });
 }
