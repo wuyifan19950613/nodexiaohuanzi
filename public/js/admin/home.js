@@ -1,7 +1,7 @@
 var userInfo = JSON.parse(Cookie.get('user'));
 console.log(userInfo);
-if (userInfo.type == 2) {
-  $('.user-management').show();
+if (userInfo.type == 3) {
+  $('.user-management').css({display:'block'});
 }
 $('.userInfo .name').html(userInfo.userName);
 $('.userInfo .id span').html(userInfo.pid);
