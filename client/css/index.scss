@@ -602,6 +602,14 @@ table{
         display: inline-block;
         vertical-align: middle;
       }
+      .dock{
+        background-image: url(/images/ruzhu.png);
+        background-size: 100%;
+        width: .6rem;
+        height: .6rem;
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
   }
 }
@@ -841,6 +849,18 @@ table{
     &.active{
       background: #333;
       color: #fff;
+    }
+  }
+}
+.docking{
+  background: #fff;
+  .biaoti{
+    font-size: .28rem;
+    font-weight: bold;
+    margin-bottom: .2rem;
+    margin-top: .2rem;
+    span{
+      text-align: justify;
     }
   }
 }

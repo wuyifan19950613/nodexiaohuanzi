@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var admin = require('./routes/admin');
+var wechat = require('./routes/wechat');
 var ejs = require("ejs");
 var app = express();
 var mystorage = require('./public/js/localStorage');
@@ -34,6 +35,7 @@ app.use(function(req, res, next){
   next()
 })
 admin(app);
+wechat(app);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
