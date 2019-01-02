@@ -79,7 +79,7 @@ function settlement(dome, startTime, endTime, adzone_id){
           count = count + parseFloat(msg.data[i].pub_share_pre_fee);
         }
       }
-      $('.'+dome+'').html(count)
+      $('.'+dome+'').html((count).toFixed(2))
     }
   })
 }
