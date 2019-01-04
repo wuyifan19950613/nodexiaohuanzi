@@ -1,0 +1,37 @@
+<% include ../modules/searchHeader.html %>
+</head>
+<body>
+  <% include ../modules/topNav.html %>
+  <div class="fans-main">
+    <div class="accredit alipay flex flex-center">
+      <img class="xh-icon" src="/images/xiaohuanyouquan.jpg" alt="">
+      <img class="lianjie" src="/images/lianjie.png" alt="">
+      <img class="alipay-icon" src="/images/zhifubao.png" alt="">
+    </div>
+    <div class="cash-input">
+      <div class="cash-box">
+        <label>真实姓名</label>
+        <div class="fe user-name"></div>
+      </div>
+      <div class="cash-box">
+        <label>到账支付宝</label>
+        <div class="fe alipay-account">请先绑定支付宝</div>
+        <a href="/admin/bindalipay" class="bind-alipay">
+          <div class="tips">绑定支付宝</div>
+        </a>
+      </div>
+      <div class="cash-box">
+        <label>提现金额</label>
+        <input type="number" class="fe" placeholder="请输入提现金额">
+      </div>
+      <div class="cash-box tips">
+        <div class="fe">提现余额 ￥<span class="balance"></span></div>
+        <div>最低提现金额为1元</div>
+      </div>
+    </div>
+    <div class="cash-tips">*每个月21号后可提现上个月内确认收货的订单收益</div>
+    <div class="application-btn">提交申请</div>
+  </div>
+</body>
+<script type="text/javascript" src="/js/admin/cashWithdrawal.js"></script>
+</html>

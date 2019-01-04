@@ -4,16 +4,25 @@
   <% include ../modules/topNav.html %>
   <div class="main personal-center">
     <div class="mt20 border20">
-      <div class="plate">
+      <div class="plate info-plate">
         <div class="pic"></div>
         <div class="userInfo">
           <div class="name"></div>
-          <div class="id">账户ID：<span></span></div>
+          <div class="id">邀请码：<span class="code"></span> <b class="copy-code">复制</b></div>
         </div>
         <i class="tree"></i>
       </div>
     </div>
     <div class="mt20 border20">
+      <div class="cash-withdrawal flex flex-center">
+        <div class="fe">
+          <div class="balance">
+            <label>余额&nbsp;&nbsp;￥</label>
+            <span class="balance-money">0.0</span>
+          </div>
+        </div>
+        <a href="/admin/cashWithdrawal" class="cash-btn">立即提现</a>
+      </div>
       <div class="plate">
         <div class="income">
           <div class="title">上月预估收入(元)</div>
@@ -25,7 +34,6 @@
           <div class="money ben">0</div>
           <div class="settlement not">未结算</div>
         </div>
-
         <i class="deer"></i>
       </div>
       <p class="income-reamrk">每月20日结算上月收入，本月预估收入则在下月20日结算</p>
@@ -56,6 +64,16 @@
         <p>怎么对接微信公众号</p>
         <img class="jt-icon" src="/images/fanhui.png" alt="">
       </a>
+      <a href="/wechat/docking" class="list">
+        <i class="dock"></i>
+        <p>邀请好友</p>
+        <img class="jt-icon" src="/images/fanhui.png" alt="">
+      </a>
+      <a href="/admin/myfans" class="list">
+        <i class="dock"></i>
+        <p>我的粉丝</p>
+        <img class="jt-icon" src="/images/fanhui.png" alt="">
+      </a>
     </div>
     <div class="info-input">
       <input class="" type="text" name="userName" value="" placeholder="请输入你的姓名">
@@ -65,5 +83,6 @@
     </div>
   </div>
 </body>
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
 <script type="text/javascript" src="/js/admin/home.js"></script>
 </html>

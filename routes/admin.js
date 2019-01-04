@@ -41,4 +41,20 @@ module.exports = function(app){
   app.get('/admin/orderStatusUpdate', function (req, res, next) {
     res.render('admin/orderStatusUpdate', {title: '订单状态更新',});
   });
+  app.get('/admin/pidManagement', function (req, res, next) {
+    res.render('admin/pid', {title: 'pid管理',});
+  });
+  app.get('/admin/myfans', function (req, res, next) {
+    res.render('admin/myfans', {title: '我的粉丝',});
+  });
+  app.get('/admin/cashWithdrawal', function (req, res, next) {
+    res.render('admin/cashWithdrawal', {title: '提现'});
+  });
+  app.get('/admin/bindalipay', function (req, res, next) {
+    res.render('admin/bindalipay', {title: '绑定支付宝'});
+  });
+  app.get('/admin/successfulApplication', function (req, res, next) {
+    res.render('admin/successfulApplication', {title: '申请成功'});
+  });
+
 }

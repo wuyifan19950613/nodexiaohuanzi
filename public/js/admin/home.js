@@ -1,13 +1,32 @@
 var userInfo = JSON.parse(Cookie.get('user'));
-console.log(userInfo);
 if (userInfo.type == 3) {
   $('.user-management').css({display:'block'});
 }
-$('.userInfo .name').html(userInfo.userName);
-$('.userInfo .id span').html(userInfo.pid);
+console.log(userInfo)
+$('.userInfo .name').html(userInfo.Email);
+$('.userInfo .id span').html(userInfo.spread_code);
 $('input[name="userName"]').val(userInfo.userName);
 $('input[name="Rebate"]').val(userInfo.Rebate);
 $('input[name="site_name"]').val(userInfo.site_name);
+$('.balance-money').html(userInfo.lastMonth);
+var content = $('.code').html();
+var clipboard = new ClipboardJS('.copy-code', {
+  text: function() {
+    return content;
+  }
+});
+clipboard.on('success', function(e) {
+  layer.open({
+    content: '复制成功'
+    ,skin: 'msg'
+    ,time: 2 //2秒后自动关闭
+  });
+});
+clipboard.on('error', function(e) {
+  console.log(e);
+});
+
+
 
 $('.info-save').on('click', function(){
   var userName = $('input[name="userName"]').val();
@@ -67,9 +86,19 @@ var startTime = myDate.getFullYear()+'-'+(thisMonth) +'-01'+' 00:00:00';
 
 var lastStartTime = lastYear +'-'+ lastMonth +'-01'+' 00:00:00';
 var lastEndTime = lastYear +'-'+lastMonth +'-'+ lastDays + ' 23:59:59';
-settlement('ben', startTime ,endTime, adzone_id);
-settlement('last', lastStartTime ,lastEndTime, adzone_id);
-function settlement(dome, startTime, endTime, adzone_id){
+settlement('ben', startTime ,endTime, adzone_id, (count)=> {
+  if (!userInfo.thisMonth) {
+    userInfo.thisMonth = count;
+    Cookie.set('user', JSON.stringify(userInfo));
+  }
+});
+settlement('last', lastStartTime ,lastEndTime, adzone_id, (count)=> {
+  if (!userInfo.lastMonth) {
+    userInfo.lastMonth = count;
+    Cookie.set('user', JSON.stringify(userInfo));
+  }
+});
+function settlement(dome, startTime, endTime, adzone_id, cb){
   $.myGetJSON({
     url: '/api/settlement?startTime='+startTime+'&endTime='+endTime+'&adzone_id='+adzone_id,
     success: function (msg) {
@@ -79,7 +108,10 @@ function settlement(dome, startTime, endTime, adzone_id){
           count = count + parseFloat(msg.data[i].pub_share_pre_fee);
         }
       }
-      $('.'+dome+'').html((count).toFixed(2))
+      $('.'+dome+'').html((count).toFixed(2));
+      if (cb) {
+        cb(count)
+      }
     }
   })
 }

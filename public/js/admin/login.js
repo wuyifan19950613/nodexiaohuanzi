@@ -1,7 +1,7 @@
 $('.login-btn').on('click', function(){
-  var userName = $('input[name="account"]').val();
+  var Email = $('input[name="account"]').val();
   var password = $('input[name="password"]').val();
-  if (userName == '') {
+  if (Email == '') {
     layer.open({
       content: '请输入账号'
       ,skin: 'msg'
@@ -18,7 +18,7 @@ $('.login-btn').on('click', function(){
   } else {
     $.myPostJSON({
       url: '/api/user/login',
-      data: JSON.stringify({userName: userName, password: password}),
+      data: JSON.stringify({Email: Email, password: password}),
       success: function(res){
         console.log(res);
         if (res.code == 201) {
@@ -48,6 +48,7 @@ $('.login-btn').on('click', function(){
 $('.register-btn').on('click', function(){
   var userName = $('input[name="account"]').val();
   var password = $('input[name="password"]').val();
+  var code = $('input[name="code"]').val();
   if (userName == '') {
     layer.open({
       content: '请输入账号'
@@ -65,10 +66,10 @@ $('.register-btn').on('click', function(){
   } else {
     $.myPostJSON({
       url: '/api/user/register',
-      data: JSON.stringify({userName: userName, password: password}),
+      data: JSON.stringify({userName: userName, password: password,promoCode: code}),
       success: function(res){
         console.log(res);
-        if (res.code == 201) {
+        if (res.code == 202) {
           layer.open({
             content: res.message
             ,skin: 'msg'
