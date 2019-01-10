@@ -7,7 +7,7 @@ if (myDate.getDate() >= 4) {
 var userInfo = JSON.parse(Cookie.get('user'));
 $('.user-name').html(userInfo.userName);
 $('.alipay-account').html(userInfo.alipayID);
-$('.cash-box .balance').html(userInfo.lastMonth);
+$('.cash-box .balance').html(userInfo.amount);
 if (userInfo.alipayID) {
   $('.bind-alipay').hide();
 }
@@ -16,7 +16,7 @@ $('.bin-active').on('click', function(){
   var user_name = $('.user-name').val();
   var apipay_number = $('.alipay-number').val();
   var phone_number = $('.phone-number').val();
-  var Email = $('.email').val();
+  // var Email = $('.email').val();
   if (user_name == '') {
     layer.open({
       content: '请输入您的真实姓名'
@@ -45,7 +45,7 @@ $('.bin-active').on('click', function(){
       userName: user_name,
       apipayId: apipay_number,
       phone: phone_number,
-      Email: Email,
+      // Email: Email,
     }),
     success: function(res){
       Cookie.set('user', JSON.stringify(res.data));
@@ -62,12 +62,19 @@ $('.bin-active').on('click', function(){
     }
   })
 })
-$('.application-btn.active').on('click', function(){
+$('.apply-btn.active').on('click', function(){
   var balance = Number($('.cash-box .balance').html())
   var wantbalance = $('.cash-box input[type="number"]').val();
   var apipayId = $('.alipay-account').html();
   var userName = $('.user-name').html();
-  if (wantbalance > balance) {
+  if (userName == '') {
+    layer.open({
+      content: '请先绑定支付宝'
+      ,skin: 'msg'
+      ,time: 2 //2秒后自动关闭
+    });
+    return false;
+  } else if (wantbalance > balance) {
     layer.open({
       content: '金额已超过提现余额'
       ,skin: 'msg'
@@ -92,10 +99,18 @@ $('.application-btn.active').on('click', function(){
     success: function(msg){
       if (msg.code == 200) {
         var userInfo = JSON.parse(Cookie.get('user'));
-        userInfo.lastMonth = (balance - wantbalance).toFixed(2);
+        userInfo.amount = msg.data.amount;
         Cookie.set('user', JSON.stringify(userInfo));
         window.location.href = '/admin/successfulApplication';
       }
     }
   })
 })
+
+// $('.cash-input .cash-box input').bind('focus',function(){
+//     // $('.withdrawals-record').css('position','static');
+//     $('.fans-main').height($(window).height()+'px');
+//     $('.withdrawals-record').css({'position':'absolute','bottom':'.2rem'});
+// }).bind('blur',function(){
+//     $('.withdrawals-record').css({'position':'fixed','bottom':'.2rem'});
+// });

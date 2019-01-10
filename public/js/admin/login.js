@@ -46,10 +46,10 @@ $('.login-btn').on('click', function(){
   }
 });
 $('.register-btn').on('click', function(){
-  var userName = $('input[name="account"]').val();
+  var Email = $('input[name="account"]').val();
   var password = $('input[name="password"]').val();
   var code = $('input[name="code"]').val();
-  if (userName == '') {
+  if (Email == '') {
     layer.open({
       content: '请输入账号'
       ,skin: 'msg'
@@ -66,7 +66,7 @@ $('.register-btn').on('click', function(){
   } else {
     $.myPostJSON({
       url: '/api/user/register',
-      data: JSON.stringify({userName: userName, password: password,promoCode: code}),
+      data: JSON.stringify({Email: Email, password: password,promoCode: code}),
       success: function(res){
         console.log(res);
         if (res.code == 202) {

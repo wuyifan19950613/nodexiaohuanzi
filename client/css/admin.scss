@@ -1,0 +1,74 @@
+.withdrawals-record{
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: .26rem;
+  text-decoration: underline;
+}
+.time-axis{
+  .time-axis-li{
+    .left{
+      position: relative;
+      padding: .2rem 0;
+      height: 1rem;
+      width: 2rem;
+      border-right: 1px solid #e4e4e4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: .26rem;
+      .dot{
+        position: absolute;
+        right: -.1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: .2rem;
+        height: .2rem;
+        border-radius: 50%!important;
+        &.chuli{
+          background: #fcab52;
+        }
+        &.arrival-account{
+          background: #4fd2c2;
+        }
+        &.reject{
+          background: #ff4040;
+        }
+      }
+    }
+    .right{
+      font-size: .3rem;
+      padding-left: .2rem;
+      display: flex;
+      align-items: center;
+      flex: 1;
+      position: relative;
+      b{
+        position: absolute;
+        top: 50%;
+        right: .2rem;
+        font-weight: normal;
+
+        transform: translateY(-50%);
+        .amount{
+          font-size: .4rem;
+          text-align: center;
+        }
+        .tips{
+          font-size: .24rem;
+          text-align: center;
+          &.chuli{
+            color: #fcab52;
+          }
+          &.arrival-account{
+            color: #4fd2c2;
+          }
+          &.reject{
+            color: #ff4040;
+          }
+        }
+      }
+    }
+  }
+}

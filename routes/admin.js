@@ -56,5 +56,8 @@ module.exports = function(app){
   app.get('/admin/successfulApplication', function (req, res, next) {
     res.render('admin/successfulApplication', {title: '申请成功'});
   });
+  app.get('/admin/withdrawalsRecord', function (req, res, next) {
+    res.render('admin/withdrawalsRecord', {title: '提现记录'});
+  });
 
 }

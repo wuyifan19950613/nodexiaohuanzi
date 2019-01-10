@@ -5,11 +5,11 @@
 .clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
 .clearfloat{zoom:1}
 html,body{
-  background: #f0f0f0;
   font-size: .24rem;
   color: #333;
   max-width: 750px;
   margin: auto;
+  background: #fff;
 }
 ul,li,ol{
   list-style: none;
@@ -75,7 +75,6 @@ img{
     display: block;
     height: .95rem;
   }
-  padding: .2rem;
 }
 .input-base{
   width: 100%;
@@ -526,6 +525,7 @@ table{
   }
 }
 .personal-center{
+  padding:.2rem;
   .info-input{
     margin-top: .4rem;
     display: none;
@@ -555,7 +555,6 @@ table{
   }
   .home-main{
     background: #fff;
-    padding: 0 .2rem;
     border-radius: .2rem;
     .list{
       padding: .2rem;
