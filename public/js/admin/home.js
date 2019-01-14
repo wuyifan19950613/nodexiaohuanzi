@@ -7,15 +7,16 @@ $.myGetJSON({
       $('.user-management').css({display:'block'});
     }
     console.log(userInfo)
-    $('.userInfo .name').html(userInfo.Email);
-    $('.userInfo .id span').html(userInfo.spread_code);
+    $('.user-info-main .account').html(userInfo.Email);
+    $('.user-info-main .code-number').html(userInfo.spread_code);
     $('input[name="userName"]').val(userInfo.userName);
     $('input[name="Rebate"]').val(userInfo.Rebate);
     $('input[name="site_name"]').val(userInfo.site_name);
     $('.balance-money').html(userInfo.amount);
     $('.money.ben').html(userInfo.estimated_revenue_the_month);
     $('.money.last').html(userInfo.estimated_revenue_last_month);
-    var content = $('.code').html();
+    $('.number-of-fans span').html(userInfo.fans_number);
+    var content = $('.user-info-main .code-number').html();
     var clipboard = new ClipboardJS('.copy-code', {
       text: function() {
         return content;
