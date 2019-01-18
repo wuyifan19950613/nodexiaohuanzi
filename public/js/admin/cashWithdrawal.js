@@ -1,10 +1,11 @@
 var myDate = new Date();
-if (myDate.getDate() >= 4) {
+if (myDate.getDate() >= 21) {
   $('.application-btn').addClass('active')
 } else {
   $('.application-btn').removeClass('active')
 }
 var userInfo = JSON.parse(Cookie.get('user'));
+console.log(userInfo)
 $('.user-name').html(userInfo.userName);
 $('.alipay-account').html(userInfo.alipayID);
 $('.cash-box .balance').html(userInfo.amount);

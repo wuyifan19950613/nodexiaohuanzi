@@ -1,3 +1,4 @@
+
 $.myGetJSON({
   url: '/api/user/info',
   success: function(res){
@@ -52,6 +53,7 @@ $('.info-save').on('click', function(){
       ,time: 2 //2秒后自动关闭
     });
   } else {
+    var userInfo = JSON.parse(Cookie.get('user'));
     $.myGetJSON({
       url: '/api/modifyingData?id='+userInfo._id+'&userName='+userName+'&Rebate='+Rebate+'&site_name='+site_name,
       success: function(res){
