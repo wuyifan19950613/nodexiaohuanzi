@@ -30,7 +30,7 @@ wechat(app);
 app.use(function(req, res, next){
   var user = req.cookies.user;
   var originalUrl = req.originalUrl;
-  if(originalUrl !== '/admin/login' && originalUrl !== '/admin/register' && user == undefined) {
+  if(originalUrl !== '/admin/login' && originalUrl !== '/admin/register' && user == undefined || originalUrl !== '/admin/login' && originalUrl !== '/admin/register' && user == 'null') {
     return res.redirect('/admin/login');//页面重定向；
   }
   next()

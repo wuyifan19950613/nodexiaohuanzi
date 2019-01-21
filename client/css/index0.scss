@@ -180,36 +180,27 @@ table{
   }
 }
 .recommend-list{
-  background: #f7f7f7;
-  display: flex;
-  flex-wrap:wrap;
-  padding: 0 0.1rem;
+  background: #fff;
   li{
-    flex: 1;
     min-height: 1.6rem;
-    padding: 0 .1rem .2rem;
+    padding: .2rem;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    max-width: 50%;
-    width: 50%;
-    min-width: 50%;
-    box-sizing: border-box;
-    .img-url{
-      width: 100%;
-      overflow: hidden;
-    }
     a{
-      display: block;
-      background: #fff;
-      padding-bottom: .2rem;
+      display: flex;
+    }
+    .img-url{
+      width: 2rem;
+      height: 2rem;
+      overflow: hidden;
     }
     .commodity{
       -webkit-box-flex: 1;
       -ms-flex: 1;
       flex: 1;
+      padding: .1rem .2rem 0;
       position: relative;
-      padding: 0 .1rem;
     }
     .commodity-title{
       font-size: .28rem;
@@ -223,40 +214,35 @@ table{
       /* autoprefixer: on */
     }
     .used-coupon{
+      background: #000;
+      display: inline-block;
+      border-radius: .1rem;
+      color: #fff;
+      font-size: .24rem;
+      padding-left: .2rem;
+      line-height: .3rem;
+      padding-right: .2rem;
+      margin-top: .15rem;
+      margin-right: .2rem;
+      height: .35rem;
+      line-height: .35rem;
+    }
+    .used-envelope{
       background: #ff504d;
       display: inline-block;
       border-radius: .1rem;
       color: #fff;
       font-size: .24rem;
-      padding-left: .1rem;
+      padding-left: .2rem;
       line-height: .3rem;
-      padding-right: .1rem;
+      padding-right: .2rem;
       margin-top: .15rem;
-      margin-right: .1rem;
-      height: .45rem;
-      line-height: .45rem;
-      span{
-        border-right: 1px dashed #fff;
-        padding-right: .1rem;
-      }
-    }
-    .used-envelope{
-      background: rgba(255,80,77, .5);
-      display: inline-block;
-      border-radius: .1rem;
-      color: #fff;
-      font-size: .24rem;
-      padding-left: .1rem;
-      line-height: .3rem;
-      padding-right: .1rem;
-      margin-top: .15rem;
-      height: .45rem;
-      line-height: .45rem;
+      height: .35rem;
+      line-height: .35rem;
     }
     .price{
       font-size: .22rem;
       margin-top: .2rem;
-      position: relative;
     }
     .sale-price{
       color: #f95e5b;
@@ -269,13 +255,6 @@ table{
       color: #b0b0b0;
       text-decoration: line-through;
       margin-left: .1rem;
-    }
-    .volume{
-      color: #b0b0b0;
-      position: absolute;
-      top:50%;
-      right: 0;
-      transform: translateY(-50%);
     }
   }
 }

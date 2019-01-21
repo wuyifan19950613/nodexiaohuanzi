@@ -24,4 +24,4 @@ $.myGetJSON({
 			console.log(e);
 		});
 	}
-})
+});

@@ -1,0 +1,84 @@
+<% include modules/searchHeader.html %>
+</head>
+<body>
+  <div class="bottom-height">
+    <div class="commodity-details">
+      <div class="swiper-container details-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="<%= detail.pict_url%>" alt="">
+          </div>
+          <% for(var i = 0; i < simple.string.length; i++) {%>
+            <div class="swiper-slide" >
+              <img src="<%= simple.string[i]%>" alt="">
+            </div>
+          <%}%>
+        </div>
+      </div>
+      <h1 class="details-title"><%= detail.title%></h1>
+      <div class="commodity-money">
+        <% if (detail.coupon_amount != '0') {%>
+          <div class="left">
+            <div class="jh">
+              劵后价￥<span class="folding"></span>
+            </div>
+            <div class="yj">
+              (原价￥<span class="original-price"><%= detail.zk_final_price%></span>)
+            </div>
+          </div>
+        <% } else { %>
+          <div class="left">
+            <div class="jh">
+              现价￥<span class="folding"></span>
+            </div>
+          </div>
+        <% } %>
+        <div class="right">
+          已售<%= detail.volume%>件
+        </div>
+      </div>
+      <% if (detail.coupon_amount != '0') {%>
+      <div class="counp">
+        劵：<span></span>元
+      </div>
+      <% } %>
+      <div class="envelope">
+        返：<span></span>元
+      </div>
+    </div>
+    <div class="password-box">
+      <div class="password-title purchase" onclick="">一键点击复制淘口令</div>
+      <div class="password">
+        <p class="password-text">￥口令生成中￥</p>
+        <p class="password-reamrk">复制这条信息，打开【手机淘宝】即可领劵购买</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-fiexd">
+    <div class="purchase" onclick="">口令购买</div>
+    <a class="url-purch" href="<%= detail.coupon_share_url%>">立即领劵</a>
+  </div>
+</body>
+<script type="text/javascript">
+  const infoData = {
+  	title: '<%= detail.title%>',
+  	url: 'https:<%= detail.coupon_share_url%>',
+  	logo: '<%= detail.pict_url%>',
+  }
+</script>
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/details.js"></script>
+<script type="text/javascript">
+  $(function(){
+    var coupon_info = '<%= detail.coupon_info%>';
+    var zk_final_price = '<%= detail.zk_final_price%>';
+    var commission_rate = '<%= detail.commission_rate%>';
+    var coupon_amount =  MyMethods.CouponNum(coupon_info);
+    $('.jh .folding').html(`${zk_final_price - coupon_amount}`);
+    $('.counp span').html(MyMethods.CouponNum(coupon_info));
+    $('.envelope span').html(Math.floor((Math.floor((commission_rate / 100).toFixed(2) * (zk_final_price - coupon_amount)) / 100) * .7 * 100) / 100);
+
+  })
+</script>
+</html>

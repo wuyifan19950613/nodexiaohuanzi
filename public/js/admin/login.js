@@ -28,7 +28,7 @@ $('.login-btn').on('click', function(){
             ,time: 2 //2秒后自动关闭
           });
         } else {
-          Cookie.set('user', JSON.stringify(res.userInfo));
+          $.cookie('user', JSON.stringify(res.userInfo));
           layer.open({
             content: res.message
             ,skin: 'msg'

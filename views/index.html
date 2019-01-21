@@ -3,14 +3,21 @@
 </head>
 <body>
   <div class="search-box">
-    <div class="logo">
-      <h1>
-        <a href="" class=""></a>
-      </h1>
-    </div>
-    <input id="keyword" type="text" name="search" placeholder="请输入关键词">
+    <input id="keyword" type="text" name="search" placeholder="先领劵在购买">
   </div>
-
+  <!--  导航 start-->
+  <div class="navigation">
+    <div class="swiper-container navigation-swiper">
+      <div class="swiper-wrapper">
+        <% for(var i = 0; i< navigation.data.length; i++){%>
+        <div class="swiper-slide nav-slide" data-material_id="<%= navigation.data[i].navId%>">
+          <div class="nav-title"><%= navigation.data[i].title%></div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <!--  导航 end-->
   <!--  banner start-->
   <div class="swiper-container index-banner">
     <div class="swiper-wrapper">
@@ -31,19 +38,7 @@
   <% include modules/category.html %>
   <!--  分类 end-->
 
-  <!--  导航 start-->
-  <div class="navigation">
-    <div class="swiper-container navigation-swiper">
-      <div class="swiper-wrapper">
-        <% for(var i = 0; i< navigation.data.length; i++){%>
-        <div class="swiper-slide nav-slide" data-material_id="<%= navigation.data[i].navId%>">
-          <div class="nav-title"><%= navigation.data[i].title%></div>
-        </div>
-        <% } %>
-      </div>
-    </div>
-  </div>
-  <!--  导航 end-->
+
   <% include modules/commodities.html %>
 </body>
 <script type="text/javascript" src="/js/index.js"></script>

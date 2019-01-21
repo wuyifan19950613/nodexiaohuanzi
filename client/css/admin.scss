@@ -152,3 +152,79 @@
   }
   height: 3rem;
 }
+.setup{
+  .img-box{
+    margin-top: .4rem;
+    text-align: center;
+    .head-portrait{
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+    }
+    .desc{
+      color: #a5a5a5;
+      margin-top: .2rem;
+      font-size: .28rem;
+    }
+  }
+  .form-data{
+    padding: 0 .2rem;
+    margin-top: .5rem;
+    .flex{
+      height: .8rem;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    label{
+      width: 1.5rem;
+      margin-right: .2rem;
+      font-size: .28rem;
+    }
+    input{
+      border: none;
+      height: 100%;
+      color: #a5a5a5;
+    }
+    .text-jt{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+    }
+    span{
+      vertical-align: middle;
+      color: #a5a5a5;
+      font-size: .28rem;
+    }
+    .jt-icon{
+      display: inline-block;
+      vertical-align: middle;
+      width: .5rem;
+      height: .5rem;
+      background: url(../images/fanhui.png);
+      background-size: 100%;
+    }
+  }
+}
+.logout{
+  div{
+    text-align: center;
+    color: #a5a5a5;
+    font-size: .28rem;
+    height: .8rem;
+    line-height: .8rem;
+  }
+  &:before{
+    height: .2rem;
+    content: '';
+    display: block;
+    background: #f7f7f7;
+  }
+  &:after{
+    height: .2rem;
+    content: '';
+    display: block;
+    background: #f7f7f7;
+  }
+}

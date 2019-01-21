@@ -4,7 +4,7 @@ if (myDate.getDate() >= 21) {
 } else {
   $('.application-btn').removeClass('active')
 }
-var userInfo = JSON.parse(Cookie.get('user'));
+var userInfo = $.cookie('user');
 console.log(userInfo)
 $('.user-name').html(userInfo.userName);
 $('.alipay-account').html(userInfo.alipayID);
@@ -49,7 +49,7 @@ $('.bin-active').on('click', function(){
       // Email: Email,
     }),
     success: function(res){
-      Cookie.set('user', JSON.stringify(res.data));
+      $.cookie('user', JSON.stringify(res.data));
       layer.open({
         content: '绑定成功'
         ,skin: 'msg'
@@ -99,9 +99,9 @@ $('.apply-btn.active').on('click', function(){
     }),
     success: function(msg){
       if (msg.code == 200) {
-        var userInfo = JSON.parse(Cookie.get('user'));
+        var userInfo = JSON.parse($.cookie('user'));
         userInfo.amount = msg.data.amount;
-        Cookie.set('user', JSON.stringify(userInfo));
+        $.cookie('user', JSON.stringify(userInfo));
         window.location.href = '/admin/successfulApplication';
       }
     }

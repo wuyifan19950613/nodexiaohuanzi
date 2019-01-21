@@ -1,0 +1,64 @@
+<% include ../modules/searchHeader.html %>
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <% include ../modules/topNav.html %>
+  <div class="fans-main setup">
+    <div class="img-box">
+      <img class="head-portrait" src="/images/touxiang.jpg" alt="">
+      <p class="desc">点击修改头像</p>
+    </div>
+    <div class="form-data">
+      <div class="flex">
+        <label>昵称</label>
+        <input class="fe" type="text" readonly name="userName" placeholder="">
+        <div class="text-jt">
+          <span>修改</span><i class="jt-icon"></i>
+        </div>
+      </div>
+      <div class="flex">
+        <label>返点比率</label>
+        <input class="fe" type="text" readonly name="rebate" value="">
+        <div class="text-jt">
+          <span>修改</span><i class="jt-icon"></i>
+        </div>
+      </div>
+      <div class="flex">
+        <label>公众号名称</label>
+        <input class="fe" type="text" readonly name="mp-name" value="">
+        <div class="text-jt">
+          <span>修改</span><i class="jt-icon"></i>
+        </div>
+      </div>
+      <div class="flex">
+        <label>修改密码</label>
+        <input class="fe" type="text" readonly name="" value="">
+        <div class="text-jt">
+          <span>修改</span><i class="jt-icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="logout">
+      <div class="">退出登录</div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+  $(function(){
+    var userInfo = JSON.parse($.cookie('user'));
+    console.log(userInfo)
+    $('input[name="rebate"]').val(userInfo.Rebate);
+    $('input[name="mp-name"]').val(userInfo.site_name);
+    $('input[name="userName"]').val(userInfo.userName);
+    // 退出登录
+    $('.logout').on('click', function(){
+      $.cookie('user', null);
+      window.location.href = '/admin/login';
+    });
+    //修改资料
+    $('.text-jt').on('click', function(){
+      $(this).siblings('input').removeAttr('readonly').focus();
+    });
+  })
+</script>
+</html>

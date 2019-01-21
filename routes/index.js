@@ -12,7 +12,6 @@ router.get('/', async function(req, res, next) {
 });
 
 router.get('/search', async function(req, res, next) {
-  console.log(req.query.searchName);
   res.render('search', { title: '搜索 "'+req.query.searchName+'" 的结果', searchName: req.query.searchName});
 });
 router.get('/shopDetail', async function(req, res, next) {
@@ -24,5 +23,10 @@ router.get('/shopDetail', async function(req, res, next) {
     res.render('detail', { title: detail.data[0].title, detail: detail.data[0], simple: simple.msg.small_images,});
   }
 });
+router.get('/babyDetails', async function(req, res, next){
+  var detail = (await request.get(`/api/taobao/materialOptional?pageSize=30&pageNum=1&searchName=https://item.taobao.com/item.htm?id=${req.query.id}`)).body;
+  var babyInfo = detail.msg.result_list.map_data[0];
+  res.render('babyDetails', {title: babyInfo.title, detail: babyInfo, simple: babyInfo.small_images});
+})
 
 module.exports = router;

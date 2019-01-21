@@ -1,38 +1,39 @@
-
 $.myGetJSON({
   url: '/api/user/info',
   success: function(res){
-    Cookie.set('user', JSON.stringify(res.data));
-    var userInfo = JSON.parse(Cookie.get('user'));
-    if (userInfo.type == 3) {
-      $('.user-management').css({display:'block'});
-    }
-    console.log(userInfo)
-    $('.user-info-main .account').html(userInfo.Email);
-    $('.user-info-main .code-number').html(userInfo.spread_code);
-    $('input[name="userName"]').val(userInfo.userName);
-    $('input[name="Rebate"]').val(userInfo.Rebate);
-    $('input[name="site_name"]').val(userInfo.site_name);
-    $('.balance-money').html(userInfo.amount);
-    $('.money.ben').html(userInfo.estimated_revenue_the_month);
-    $('.money.last').html(userInfo.estimated_revenue_last_month);
-    $('.number-of-fans span').html(userInfo.fans_number);
-    var content = $('.user-info-main .code-number').html();
-    var clipboard = new ClipboardJS('.copy-code', {
-      text: function() {
-        return content;
+    if (res.data) {
+      $.cookie('user', JSON.stringify(res.data));
+      var userInfo = JSON.parse($.cookie('user'));
+      if (userInfo.type == 3) {
+        $('.user-management').css({display:'block'});
       }
-    });
-    clipboard.on('success', function(e) {
-      layer.open({
-        content: '复制成功'
-        ,skin: 'msg'
-        ,time: 2 //2秒后自动关闭
+      console.log(userInfo)
+      $('.user-info-main .account').html(userInfo.Email);
+      $('.user-info-main .code-number').html(userInfo.spread_code);
+      $('input[name="userName"]').val(userInfo.userName);
+      $('input[name="Rebate"]').val(userInfo.Rebate);
+      $('input[name="site_name"]').val(userInfo.site_name);
+      $('.balance-money').html(userInfo.amount);
+      $('.money.ben').html(userInfo.estimated_revenue_the_month);
+      $('.money.last').html(userInfo.estimated_revenue_last_month);
+      $('.number-of-fans span').html(userInfo.fans_number);
+      var content = $('.user-info-main .code-number').html();
+      var clipboard = new ClipboardJS('.copy-code', {
+        text: function() {
+          return content;
+        }
       });
-    });
-    clipboard.on('error', function(e) {
-      console.log(e);
-    });
+      clipboard.on('success', function(e) {
+        layer.open({
+          content: '复制成功'
+          ,skin: 'msg'
+          ,time: 2 //2秒后自动关闭
+        });
+      });
+      clipboard.on('error', function(e) {
+        console.log(e);
+      });
+    }
   }
 })
 
@@ -53,7 +54,7 @@ $('.info-save').on('click', function(){
       ,time: 2 //2秒后自动关闭
     });
   } else {
-    var userInfo = JSON.parse(Cookie.get('user'));
+    var userInfo = JSON.parse($.cookie('user'));
     $.myGetJSON({
       url: '/api/modifyingData?id='+userInfo._id+'&userName='+userName+'&Rebate='+Rebate+'&site_name='+site_name,
       success: function(res){
@@ -62,7 +63,7 @@ $('.info-save').on('click', function(){
           ,skin: 'msg'
           ,time: 2 //2秒后自动关闭
           ,success: function(){
-            Cookie.set('user', JSON.stringify(res.data));
+            $.cookie('user', JSON.stringify(res.data));
             $('.personal-center .name').html(res.data.userName);
             $('.info-input').hide();
           }

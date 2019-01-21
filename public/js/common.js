@@ -1,6 +1,6 @@
 // 接口地址
-// var devBaseURL = 'http://192.168.80.16:3000';
-var devBaseURL = 'http://api.xiaohuanzi.cn';
+var devBaseURL = 'http://192.168.80.16:3000';
+// var devBaseURL = 'http://api.xiaohuanzi.cn';
 // var devBaseURL = 'http://192.168.0.104:3000';
 
 var MyMethods = {
@@ -46,8 +46,8 @@ $.myGetJSON = function(options) {
   var dataType = options.dataType || 'json';
   var async = options.async || true;
   var token = '';
-  if (Cookie.get('user') && JSON.parse(Cookie.get('user')) !== null) {
-    token = JSON.parse(Cookie.get('user')).token;
+  if ($.cookie('user') && JSON.parse($.cookie('user')) !== null) {
+    token = JSON.parse($.cookie('user')).token;
   }
   $.ajax({
     headers: {
@@ -77,8 +77,8 @@ $.myPostJSON = function(options) {
   var data = options.data || '';
   var dataType = options.dataType || 'json';
   var token = '';
-  if (Cookie.get('user') && JSON.parse(Cookie.get('user')) !== null) {
-    token = JSON.parse(Cookie.get('user')).token;
+  if ($.cookie('user') && JSON.parse($.cookie('user')) !== null) {
+    token = JSON.parse($.cookie('user')).token;
   }
   $.ajax({
     headers: {

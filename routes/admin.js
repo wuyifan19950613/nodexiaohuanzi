@@ -59,5 +59,8 @@ module.exports = function(app){
   app.get('/admin/withdrawalsRecord', function (req, res, next) {
     res.render('admin/withdrawalsRecord', {title: '提现记录'});
   });
+  app.get('/admin/setup', function (req, res, next) {
+    res.render('admin/setup', {title: '设置'});
+  });
 
 }
