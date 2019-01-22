@@ -16,6 +16,7 @@ router.get('/search', async function(req, res, next) {
 });
 router.get('/shopDetail', async function(req, res, next) {
   var detail = (await request.get(`/api/getCommodityDetails?item_id=${req.query.item_id}`)).body;
+  console.log(detail)
   if (detail.data[0].small_images) {
     res.render('detail', { title: detail.data[0].title, detail: detail.data[0], simple: detail.data[0].small_images,});
   } else {
@@ -26,6 +27,7 @@ router.get('/shopDetail', async function(req, res, next) {
 router.get('/babyDetails', async function(req, res, next){
   var detail = (await request.get(`/api/taobao/materialOptional?pageSize=30&pageNum=1&searchName=https://item.taobao.com/item.htm?id=${req.query.id}`)).body;
   var babyInfo = detail.msg.result_list.map_data[0];
+  console.log(babyInfo)
   res.render('babyDetails', {title: babyInfo.title, detail: babyInfo, simple: babyInfo.small_images});
 })
 

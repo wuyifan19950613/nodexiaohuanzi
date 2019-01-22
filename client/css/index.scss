@@ -304,9 +304,21 @@ table{
     }
   }
 }
+.return-page{
+  background: url('../images/return-page.png');
+  width: .6rem;
+  height: .6rem;
+  position: fixed;
+  top: .2rem;
+  left: .2rem;
+  z-index: 9999;
+  background-size: 100%;
+  border-radius: 50%;
+}
 .commodity-details{
   background: #fff;
   padding-bottom: .2rem;
+  position: relative;
   .details-title{
     font-size: .28rem;
     padding: .2rem;
@@ -316,12 +328,22 @@ table{
   }
 }
 .commodity-money{
+  position: relative;
   display: flex;
-  padding: 0 .2rem .2rem .2rem;
+  padding: .2rem ;
   box-sizing: border-box;
   justify-content: center;
   align-items: flex-end;
   color: #787878;
+  &:after{
+    content: '';
+    height: .2rem;
+    background: #f4f4f4;
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: -.27rem;
+  }
   .left{
     flex: 1;
     div{
@@ -433,24 +455,34 @@ table{
   }
 }
 .envelope{
-  background: #ff504d;
-  color: #fff;
-  margin-left: .2rem;
-  padding: .05rem .1rem;
+  background: rgba(255,80,77,.5);
   display: inline-block;
   border-radius: .1rem;
-  height: .3rem;
+  color: #fff;
+  font-size: .24rem;
+  padding-left: .1rem;
   line-height: .3rem;
+  padding-right: .1rem;
+  height: .45rem;
+  line-height: .45rem;
+  margin-left: .2rem;
 }
 .counp{
-  background: #000;
-  color: #fff;
-  margin-left: .2rem;
-  padding: .05rem .1rem;
+  background: #ff504d;
   display: inline-block;
   border-radius: .1rem;
-  height: .3rem;
+  color: #fff;
+  font-size: .24rem;
+  padding-left: .2rem;
   line-height: .3rem;
+  padding-right: .1rem;
+  margin-left: .2rem;
+  height: .45rem;
+  line-height: .45rem;
+  .juan{
+    border-right: 1px dashed #fff;
+    padding-right: .1rem;
+  }
 }
 .login-box{
   position: fixed;
@@ -1071,6 +1103,54 @@ table{
     margin: 2rem auto;
     color: #fff;
     border-radius: .1rem;
+    display: block;
+  }
+}
+.recommended{
+  background: #f7f7f7;
+  padding: 0 0.2rem;
+  display: none;
+  div{
+    height: .95rem;
+    line-height: .95rem;
+    text-align: center;
+    color: #ff504d;
+    font-size: .3rem;
+    background: #fff;
+    position: relative;
+    &:after{
+      content: '';
+      position: absolute;
+      top: 50%;
+      margin-top: -0.5px;
+      left: 50%;
+      margin-left: -1.3rem;
+      width: 5%;
+      height: 1px;
+      background: #ff504d;
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      top: 50%;
+      margin-top: -0.5px;
+      right: 50%;
+      margin-right: -1.3rem;
+      width: 5%;
+      height: 1px;
+      background: #ff504d;
+    }
+  }
+  &:before{
+    background: #f4f4f4;
+    content: '';
+    height: .2rem;
+    display: block;
+  }
+  &:after{
+    background: #f4f4f4;
+    content: '';
+    height: .2rem;
     display: block;
   }
 }

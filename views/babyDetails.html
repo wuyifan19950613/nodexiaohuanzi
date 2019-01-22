@@ -1,6 +1,7 @@
 <% include modules/searchHeader.html %>
 </head>
 <body>
+  <% include modules/fixed.html %>
   <div class="bottom-height">
     <div class="commodity-details">
       <div class="swiper-container details-swiper">
@@ -16,34 +17,28 @@
         </div>
       </div>
       <h1 class="details-title"><%= detail.title%></h1>
+
+      <div class="counp">
+        <span class="juan">劵</span> ￥<span class="juan-amout"></span>
+      </div>
+      <div class="envelope">
+        预估收益 ￥<span></span>
+      </div>
       <div class="commodity-money">
-        <% if (detail.coupon_amount != '0') {%>
-          <div class="left">
-            <div class="jh">
-              劵后价￥<span class="folding"></span>
-            </div>
-            <div class="yj">
-              (原价￥<span class="original-price"><%= detail.zk_final_price%></span>)
-            </div>
+        <div class="left">
+          <div class="jh juanhou">
+            劵后价 ￥<span class="folding"></span>
           </div>
-        <% } else { %>
-          <div class="left">
-            <div class="jh">
-              现价￥<span class="folding"></span>
-            </div>
+          <div class="jh xianjia">
+            现价 ￥<span class="folding"></span>
           </div>
-        <% } %>
+          <div class="yj">
+            (原价￥<span class="original-price"><%= detail.zk_final_price%></span>)
+          </div>
+        </div>
         <div class="right">
           已售<%= detail.volume%>件
         </div>
-      </div>
-      <% if (detail.coupon_amount != '0') {%>
-      <div class="counp">
-        劵：<span></span>元
-      </div>
-      <% } %>
-      <div class="envelope">
-        返：<span></span>元
       </div>
     </div>
     <div class="password-box">
@@ -53,6 +48,10 @@
         <p class="password-reamrk">复制这条信息，打开【手机淘宝】即可领劵购买</p>
       </div>
     </div>
+    <div class="recommended">
+      <div>猜你喜欢</div>
+    </div>
+    <% include modules/commodities.html %>
   </div>
 
   <div class="bottom-fiexd">
@@ -74,11 +73,47 @@
     var coupon_info = '<%= detail.coupon_info%>';
     var zk_final_price = '<%= detail.zk_final_price%>';
     var commission_rate = '<%= detail.commission_rate%>';
-    var coupon_amount =  MyMethods.CouponNum(coupon_info);
-    $('.jh .folding').html(`${zk_final_price - coupon_amount}`);
-    $('.counp span').html(MyMethods.CouponNum(coupon_info));
-    $('.envelope span').html(Math.floor((Math.floor((commission_rate / 100).toFixed(2) * (zk_final_price - coupon_amount)) / 100) * .7 * 100) / 100);
-
+    var num_iid = '<%= detail.num_iid%>';
+    if (coupon_info == '') {
+      $('.counp').hide();
+      $('.yj').hide();
+      $('.juanhou').hide();
+      $('.xianjia span').html(zk_final_price);
+      $('.envelope span').html(Math.floor((Math.floor((commission_rate / 100).toFixed(2) * zk_final_price) / 100) * .7 * 100) / 100);
+    } else {
+      var coupon_amount =  MyMethods.CouponNum(coupon_info);
+      $('.xianjia').hide();
+      $('.juanhou .folding').html(`${(zk_final_price - coupon_amount).toFixed(2)}`);
+      $('.counp .juan-amout').html(MyMethods.CouponNum(coupon_info));
+      $('.envelope span').html(Math.floor((Math.floor((commission_rate / 100).toFixed(2) * (zk_final_price - coupon_amount)) / 100) * .7 * 100) / 100);
+    }
+    $.myGetJSON({
+      url: '/api/taobao/recommend?num_iid='+num_iid,
+      success: function(res){
+        if (res.data.results) {
+          $('.recommended').show();
+          var commlist = res.data.results.n_tbk_item;
+          var html = '';
+          for(var i= 0; i<commlist.length;i++){
+            html+='<li class="">';
+            html+='<a href="/babyDetails?id='+commlist[i].num_iid+'">';
+            html+='<div class="img-url">';
+            html+='<img src="'+commlist[i].pict_url+'" data-original="'+commlist[i].pict_url+'" alt="">';
+            html+='</div>';
+            html+='<div class="commodity">';
+            html+='<h1 class="commodity-title">'+commlist[i].title+'</h1>';
+            html+='<div class="price">';
+            html+='<span class="sale-price">￥<b>'+(commlist[i].zk_final_price)+'</b></span>';
+            html+='<span class="volume">已售'+commlist[i].volume+'</span>'
+            html+='</div>';
+            html+='</div>';
+            html+='</a></li>';
+          }
+          $('.recommend-list').html(html);
+          $("img").lazyload({effect: "fadeIn"});
+        }
+      }
+    })
   })
 </script>
 </html>

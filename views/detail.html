@@ -1,6 +1,7 @@
 <% include modules/searchHeader.html %>
 </head>
 <body>
+  <% include modules/fixed.html %>
   <div class="bottom-height">
     <div class="commodity-details">
       <div class="swiper-container details-swiper">
@@ -16,6 +17,15 @@
         </div>
       </div>
       <h1 class="details-title"><%= detail.title%></h1>
+
+      <% if (detail.coupon_amount != '0') {%>
+      <div class="counp">
+        劵：<%= detail.coupon_amount%>元
+      </div>
+      <% } %>
+      <div class="envelope">
+        返：<%= Math.floor((Math.floor((detail.commission_rate / 100).toFixed(2) * (detail.zk_final_price - detail.coupon_amount)) / 100) * .7 * 100) / 100 %>元
+      </div>
       <div class="commodity-money">
         <% if (detail.coupon_amount != '0') {%>
           <div class="left">
@@ -41,14 +51,6 @@
           已售<%= detail.volume%>件
         </div>
       </div>
-      <% if (detail.coupon_amount != '0') {%>
-      <div class="counp">
-        劵：<%= detail.coupon_amount%>元
-      </div>
-      <% } %>
-      <div class="envelope">
-        返：<%= Math.floor((Math.floor((detail.commission_rate / 100).toFixed(2) * (detail.zk_final_price - detail.coupon_amount)) / 100) * .7 * 100) / 100 %>元
-      </div>
     </div>
     <div class="password-box">
       <div class="password-title purchase" onclick="">一键点击复制淘口令</div>
@@ -57,8 +59,11 @@
         <p class="password-reamrk">复制这条信息，打开【手机淘宝】即可领劵购买</p>
       </div>
     </div>
+    <div class="recommended">
+      <div>猜你喜欢</div>
+    </div>
+    <% include modules/commodities.html %>
   </div>
-
   <div class="bottom-fiexd">
     <div class="purchase" onclick="">口令购买</div>
     <a class="url-purch" href="<%= detail.coupon_click_url%>">立即领劵</a>
@@ -69,6 +74,7 @@
   	title: '<%= detail.title%>',
   	url: 'https:<%= detail.coupon_click_url%>',
   	logo: '<%= detail.pict_url%>',
+    num_iid: '<%= detail.item_id%>',
   }
 </script>
 <script type="text/javascript" src="/js/clipboard.min.js"></script>
