@@ -88,6 +88,9 @@
     $('.url-purch').attr('href', '#').on('click', function(){
       $('.weixin-fiexd').show();
     });
+    $('.weixin-fiexd').on('click', function(){
+      $('.weixin-fiexd').hide();
+    })
   } else {
     $('.url-purch').attr('href', 'taobao:<%= detail.coupon_click_url%>');
   }
