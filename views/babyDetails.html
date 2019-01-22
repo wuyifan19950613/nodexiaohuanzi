@@ -56,7 +56,11 @@
 
   <div class="bottom-fiexd">
     <div class="purchase" onclick="">口令购买</div>
-    <a class="url-purch" href="<%= detail.coupon_share_url%>">立即领劵</a>
+    <a class="url-purch" href="taobao:<%= detail.coupon_share_url%>">立即领劵</a>
+  </div>
+  <!-- 微信中引導分享 -->
+  <div class="weixin-fiexd">
+    <img src="/images/xixi.png" alt="">
   </div>
 </body>
 <script type="text/javascript">
@@ -70,6 +74,13 @@
 <script type="text/javascript" src="/js/details.js"></script>
 <script type="text/javascript">
   $(function(){
+    if (MyMethods.isWeiXin()) {
+      $('.url-purch').attr('href', '#').on('click', function(){
+        $('.weixin-fiexd').show();
+      });
+    } else {
+      $('.url-purch').attr('href', 'taobao:<%= detail.coupon_share_url%>');
+    }
     var coupon_info = '<%= detail.coupon_info%>';
     var zk_final_price = '<%= detail.zk_final_price%>';
     var commission_rate = '<%= detail.commission_rate%>';

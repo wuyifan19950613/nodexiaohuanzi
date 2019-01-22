@@ -1,6 +1,6 @@
 // 接口地址
-var devBaseURL = 'http://192.168.80.16:3000';
-// var devBaseURL = 'http://api.xiaohuanzi.cn';
+// var devBaseURL = 'http://192.168.80.16:3000';
+var devBaseURL = 'http://api.xiaohuanzi.cn';
 // var devBaseURL = 'http://192.168.0.104:3000';
 
 var MyMethods = {
@@ -8,6 +8,14 @@ var MyMethods = {
     var index = v.indexOf('减');
     var result = parseInt(v.substr(index + 1,v.length));
     return result;
+  },
+  isWeiXin: function(cb){
+    const ua = window.navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+      return true;
+    } else {
+      return false;
+    }
   },
   Infinite: function(cb){
     var laoding = true;
