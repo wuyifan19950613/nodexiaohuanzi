@@ -15,16 +15,18 @@
             </div>
           <%}%>
         </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
       </div>
       <h1 class="details-title"><%= detail.title%></h1>
 
       <% if (detail.coupon_amount != '0') {%>
       <div class="counp">
-        劵：<%= detail.coupon_amount%>元
+        劵：￥<%= detail.coupon_amount%>
       </div>
       <% } %>
       <div class="envelope">
-        返：<%= Math.floor((Math.floor((detail.commission_rate / 100).toFixed(2) * (detail.zk_final_price - detail.coupon_amount)) / 100) * .7 * 100) / 100 %>元
+        预估收益：￥<%= Math.floor((Math.floor((detail.commission_rate / 100).toFixed(2) * (detail.zk_final_price - detail.coupon_amount)) / 100) * .7 * 100) / 100 %>
       </div>
       <div class="commodity-money">
         <% if (detail.coupon_amount != '0') {%>
@@ -60,7 +62,7 @@
       </div>
     </div>
     <div class="recommended">
-      <div>猜你喜欢</div>
+      <div>更多宝贝推荐</div>
     </div>
     <% include modules/commodities.html %>
   </div>

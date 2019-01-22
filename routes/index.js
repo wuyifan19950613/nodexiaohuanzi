@@ -16,6 +16,7 @@ router.get('/search', async function(req, res, next) {
 });
 router.get('/shopDetail', async function(req, res, next) {
   var detail = (await request.get(`/api/getCommodityDetails?item_id=${req.query.item_id}`)).body;
+  console.log(detail);
   if (detail.data[0].small_images) {
     res.render('detail', { title: detail.data[0].title, detail: detail.data[0], simple: detail.data[0].small_images,});
   } else {

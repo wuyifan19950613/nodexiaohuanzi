@@ -27,7 +27,7 @@ img{
   }
 }
 .swiper-pagination-bullet-active{
-  background: #fff!important;
+  background: #ff504d!important;
 }
 .header-fiexd{
   position: fixed;
@@ -121,19 +121,41 @@ table{
   }
 }
 .search-box{
+  position: relative;
   height: .95rem;
   display: flex;
-  justify-content: center;
   align-items: center;
   padding:0 .2rem;
   transition: all .3s;
   input[name="search"]{
     height: .6rem;
     border: none;
-    border-radius: .1rem;
+    border-top-left-radius: .1rem;
+    border-bottom-left-radius: .1rem;
     flex: 1;
-    padding-left: .2rem;
+    padding-left: .7rem;
     background: #f3f3f3;
+  }
+  .search-icon{
+    position: absolute;
+    top: 50%;
+    margin-top: -.2rem;
+    left: .4rem;
+    width: .4rem;
+    height: .4rem;
+    background: url(/images/search-icon.png);
+    background-size: 100%;
+  }
+  .search-btn{
+    width: .8rem;
+    height: .6rem;
+    text-align: center;
+    line-height: .6rem;
+    background: #ff504d;
+    color: #fff;
+    font-size: .28rem;
+    border-top-right-radius: .1rem;
+    border-bottom-right-radius: .1rem;
   }
 }
 .logo{
@@ -152,7 +174,7 @@ table{
 .navigation{
   background: #fff;
   .navigation-swiper{
-    height: .9rem;
+    height: .7rem;
     padding: 0 .2rem;
     a{
       display: flex;

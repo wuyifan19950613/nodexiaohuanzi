@@ -97,6 +97,15 @@ $('#keyword').on('keypress', function(e){
     })
   }
 });
+$('.search-btn').on('click', function(){
+  var searchName = $('#keyword').val();
+  $.myGetJSON({
+    url:'/api/taobao/materialOptional?pageSize=30&pageNum=1&searchName='+searchName,
+    success: function(res){
+      window.location.href = "/search?searchName="+searchName;
+    }
+  })
+})
 
 
 var laoding = true;

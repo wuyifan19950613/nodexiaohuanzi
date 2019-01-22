@@ -1,5 +1,8 @@
 var mySwiper = new Swiper('.details-swiper', {
 	autoplay: true,//可选选项，自动滑动
+	pagination: {
+		el: '.swiper-pagination',
+	},
 })
 $.myGetJSON({
 	url:'/api/taobao/pwdCreate',
