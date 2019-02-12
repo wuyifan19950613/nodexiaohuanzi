@@ -7,6 +7,9 @@ module.exports = function(app){
   app.get('/admin/index', function(req, res, next) {
     res.render('admin/index', { title: 'banner管理' });
   });
+  app.get('/admin/appletBanner', function(req, res, next) {
+    res.render('admin/appletBanner', { title: '小程序banner' });
+  });
   app.get('/admin/nav', function(req, res, next) {
     res.render('admin/nav', { title: '首页导航管理' });
   });
