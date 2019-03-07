@@ -57,7 +57,7 @@ function shopList(i,pageNum,laoding){
         html+='<li class="">';
         html+='<a href="/babyDetails?id='+commlist[i].item_id+'">';
         html+='<div class="img-url">';
-        html+='<img src="'+commlist[i].pict_url+'" data-original="'+commlist[i].pict_url+'" alt="">';
+        html+='<img src="'+commlist[i].pict_url+'" data-original="'+commlist[i].pict_url+'" alt="'+commlist[i].category_name+'">';
         html+='</div>';
         html+='<div class="commodity">';
         html+='<h1 class="commodity-title">'+commlist[i].title+'</h1>';
@@ -125,7 +125,7 @@ window.addEventListener('scroll',function(){
           html+='<li class="">';
           html+='<a href="/babyDetails?id='+commlist[i].item_id+'">';
           html+='<div class="img-url">';
-          html+='<img src="'+commlist[i].pict_url+'" data-original="'+commlist[i].pict_url+'" alt="">';
+          html+='<img src="'+commlist[i].pict_url+'" data-original="'+commlist[i].pict_url+'" alt="'+commlist[i].category_name+'">';
           html+='</div>';
           html+='<div class="commodity">';
           html+='<h1 class="commodity-title">'+commlist[i].title+'</h1>';
