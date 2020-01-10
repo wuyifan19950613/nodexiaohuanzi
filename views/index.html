@@ -1,47 +1,13 @@
-<% include modules/header.html %>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>前端学习分享测试</title>
 </head>
 <body>
-  <div class="search-box">
-    <input id="keyword" type="text" name="search" placeholder="粘贴宝贝链接，先领劵在购买">
-    <i class="search-icon"></i>
-    <div class="search-btn">搜索</div>
-  </div>
-  <!--  导航 start-->
-  <div class="navigation">
-    <div class="swiper-container navigation-swiper">
-      <div class="swiper-wrapper">
-        <% for(var i = 0; i< navigation.data.length; i++){%>
-        <div class="swiper-slide nav-slide" data-material_id="<%= navigation.data[i].navId%>">
-          <div class="nav-title"><%= navigation.data[i].title%></div>
-        </div>
-        <% } %>
-      </div>
-    </div>
-  </div>
-  <!--  导航 end-->
-  <!--  banner start-->
-  <div class="swiper-container index-banner">
-    <div class="swiper-wrapper">
-    <%for(var i=0;i<banner.data.length;i++){%>
-      <div class="swiper-slide">
-        <a href="<%= banner.data[i].imgHref%>">
-          <img src="<%= banner.data[i].imgUrl%>" alt="<%= banner.data[i].imgMark%>">
-        </a>
-      </div>
-    <% } %>
-    </div>
-    <!-- 如果需要分页器 -->
-    <div class="swiper-pagination"></div>
-  </div>
-  <!--  banner end-->
-
-  <!--  分类 stat-->
-  <% include modules/category.html %>
-  <!--  分类 end-->
-
-
-  <% include modules/commodities.html %>
+  网站正在搭建中。。。
+  <footer style="position: fixed; width: 100%;  bottom:0;left:0;line-height: 30px;text-align: center"><a style="font-size: 12px;text-decoration: none;" href="http://www.beian.miit.gov.cn">渝ICP备18014721号</a></footer>
 </body>
-<script type="text/javascript" src="/js/index.js"></script>
 </html>
